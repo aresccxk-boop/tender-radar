@@ -35,6 +35,43 @@
     { id: "gz-ai", name: "广州 AI 实验室", patch: { region: ["guangzhou"], line: ["ai"] } },
     { id: "awards", name: "中标结果", patch: { ntype: ["award"] } }
   ];
+  var HINTS = ["传感器", "数字化实验室", "人工智能实验室", "AI实训室", "理化生", "智慧黑板", "创客", "机器人", "数学实验室", "探索馆", "功能室"];
+  var ORIGINS = [
+    {
+      name: "中国政府采购网",
+      note: "用关键词打开搜索结果",
+      href: function (kw) {
+        return "https://search.ccgp.gov.cn/bxsearch?searchtype=1&page_index=1&bidSort=0&buyerName=&projectId=&pinMu=0&bidType=0&dbselect=bidx&kw=" + encodeURIComponent(kw);
+      }
+    },
+    {
+      name: "全国公共资源交易平台",
+      note: "政府采购，关键词写入搜索框",
+      href: function (kw) {
+        return "https://www.ggzy.gov.cn/deal/dealList.html?HEADER_DEAL_TYPE=02&FINDTXT=" + encodeURIComponent(kw);
+      }
+    },
+    {
+      name: "河南省政府采购网",
+      note: "用关键词打开站内搜索",
+      href: function (kw) {
+        return "https://zfcg.henan.gov.cn/henan/search?q=" + encodeURIComponent(kw);
+      }
+    },
+    {
+      name: "广东省公共资源交易平台",
+      note: "打开交易公告搜索",
+      href: function (kw) {
+        return "https://ygp.gdzwfw.gov.cn/#/44/search/jygg?keywords=" + encodeURIComponent(kw);
+      }
+    },
+    {
+      name: "广州公共资源交易中心",
+      note: "打开首页，并把关键词复制到剪贴板",
+      copy: true,
+      href: function () { return "https://www.gzggzy.cn/"; }
+    }
+  ];
 
   var rules = null;
   var raw = [];
@@ -127,11 +164,68 @@
     return ids.map(function (id) { return nameOf(rules["产品线"] || [], id); }).join("、");
   }
 
+  function shortPlace(name) {
+    return String(name || "")
+      .replace(/维吾尔自治区|回族自治区|壮族自治区|自治区/g, "")
+      .replace(/建设兵团/g, "兵团")
+      .replace(/(省|市)$/g, "");
+  }
+
   function regionLabel(item) {
-    var base = nameOf(REGIONS, item.region);
-    if (item.city) return base + " · " + item.city;
-    if (item.region === "national" && item.province) return "全国 · " + item.province;
+    var base = item.region === "guangdong" ? "广东" : nameOf(REGIONS, item.region);
+    if (item.city) return base + "·" + shortPlace(item.city);
+    if (item.region === "national" && item.province) return "全国·" + shortPlace(item.province);
     return base;
+  }
+
+  function queryGroups(q) {
+    var raw = String(q || "").trim();
+    if (!raw) return [];
+    return raw.split(/[|,，]/).map(function (part) {
+      return part.trim().split(/\s+/).filter(Boolean);
+    }).filter(function (group) { return group.length; });
+  }
+
+  function searchBlob(item) {
+    return [item.title, item.buyer, item.summary, item.winner].join("\n").toLowerCase();
+  }
+
+  function matchQuery(item, groups) {
+    if (!groups.length) return true;
+    var blob = searchBlob(item);
+    return groups.some(function (terms) {
+      return terms.every(function (term) { return blob.indexOf(term.toLowerCase()) >= 0; });
+    });
+  }
+
+  function escapeReg(s) {
+    return String(s).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  }
+
+  function highlight(text, groups) {
+    var src = String(text == null ? "" : text);
+    if (!src) return "";
+    var terms = [];
+    (groups || []).forEach(function (group) {
+      group.forEach(function (term) {
+        if (term && terms.indexOf(term) < 0) terms.push(term);
+      });
+    });
+    if (!terms.length) return esc(src);
+    terms.sort(function (a, b) { return b.length - a.length; });
+    var parts = src.split(new RegExp("(" + terms.map(escapeReg).join("|") + ")", "ig"));
+    return parts.map(function (part, i) {
+      return i % 2 === 1 ? "<mark>" + esc(part) + "</mark>" : esc(part);
+    }).join("");
+  }
+
+  function externalKeyword() {
+    var groups = queryGroups(state.q);
+    return groups.length ? groups[0].join(" ") : "";
+  }
+
+  function optName(opt) {
+    return opt.name || opt["名称"] || "";
   }
 
   function moneyText(n) {
@@ -225,7 +319,7 @@
   }
 
   function filtered() {
-    var q = state.q.trim().toLowerCase();
+    var groups = queryGroups(state.q);
     return enriched.filter(function (item) {
       if (state.line.length && !state.line.some(function (id) { return item.lines.indexOf(id) >= 0; })) return false;
       if (!regionOk(item)) return false;
@@ -234,10 +328,7 @@
       if (state.budget.length && state.budget.indexOf(budgetId(item.budget)) < 0) return false;
       if (!dueOk(item)) return false;
       if (!pubOk(item)) return false;
-      if (q) {
-        var blob = [item.title, item.buyer, item.winner, item.city, item.province, (item.keywords || []).join(" ")].join(" ").toLowerCase();
-        if (blob.indexOf(q) < 0) return false;
-      }
+      if (!matchQuery(item, groups)) return false;
       return true;
     });
   }
@@ -319,7 +410,7 @@
   function renderChecks(el, options, selectedIds, multi) {
     el.innerHTML = options.map(function (opt) {
       var on = multi ? selectedIds.indexOf(opt.id) >= 0 : state[el.dataset.key] === opt.id;
-      return '<label class="' + (on ? "on" : "") + '"><input type="' + (multi ? "checkbox" : "radio") + '" name="' + el.id + '" value="' + esc(opt.id) + '"' + (on ? " checked" : "") + ">" + esc(opt.name) + "</label>";
+      return '<label class="' + (on ? "on" : "") + '"><input type="' + (multi ? "checkbox" : "radio") + '" name="' + el.id + '" value="' + esc(opt.id) + '"' + (on ? " checked" : "") + ">" + esc(optName(opt)) + "</label>";
     }).join("");
   }
 
@@ -360,6 +451,10 @@
     }).join("");
     $("q").value = state.q;
     $("ps").value = String(state.ps);
+    $("hints").innerHTML = HINTS.map(function (word) {
+      var on = state.q.trim() === word;
+      return '<button type="button" data-hint="' + esc(word) + '" class="' + (on ? "on" : "") + '">' + esc(word) + "</button>";
+    }).join("");
   }
 
   function arrow(key) {
@@ -376,6 +471,7 @@
     var start = (state.page - 1) * state.ps;
     var pageRows = list.slice(start, start + state.ps);
     var body = $("rows");
+    var groups = queryGroups(state.q);
     if (!pageRows.length) {
       body.innerHTML = '<tr><td class="empty" colspan="11">没有符合条件的公告。换个筛选，或等下一次数据更新。</td></tr>';
     } else {
@@ -383,20 +479,20 @@
         var due = dueLabel(item.deadline, item._today);
         var ntypeName = nameOf(rules["公告类型"] || [], item.ntype);
         var stageName = item.stage ? nameOf(rules["学段"] || [], item.stage) : "—";
-        var winner = item.winner ? '<div class="sub">成交：' + esc(item.winner) + "</div>" : "";
+        var winner = item.winner ? '<div class="sub">成交：' + highlight(item.winner, groups) + "</div>" : "";
         var checked = selected[item.id] ? " checked" : "";
         return '<tr>' +
           '<td class="ck"><input type="checkbox" data-id="' + esc(item.id) + '"' + checked + ' aria-label="勾选"></td>' +
-          '<td class="title"><a href="' + esc(item.url) + '" target="_blank" rel="noopener">' + esc(item.title) + "</a>" + winner + "</td>" +
-          "<td>" + esc(regionLabel(item)) + "</td>" +
-          "<td>" + item.lines.map(function (id) { return '<span class="tag">' + esc(nameOf(rules["产品线"] || [], id)) + "</span>"; }).join("") + "</td>" +
-          "<td>" + esc(stageName) + "</td>" +
-          '<td><span class="tag' + (item.ntype === "award" ? " award" : "") + '">' + esc(ntypeName) + "</span></td>" +
-          "<td>" + esc(item.buyer || "—") + "</td>" +
+          '<td class="title"><a href="' + esc(item.url) + '" target="_blank" rel="noopener">' + highlight(item.title, groups) + "</a>" + winner + "</td>" +
+          '<td class="region">' + esc(regionLabel(item)) + "</td>" +
+          '<td class="line">' + item.lines.map(function (id) { return '<span class="tag">' + esc(nameOf(rules["产品线"] || [], id)) + "</span>"; }).join("") + "</td>" +
+          '<td class="stage">' + esc(stageName) + "</td>" +
+          '<td class="type"><span class="tag' + (item.ntype === "award" ? " award" : "") + '">' + esc(ntypeName) + "</span></td>" +
+          '<td class="buyer">' + (item.buyer ? highlight(item.buyer, groups) : "—") + "</td>" +
           '<td class="num">' + esc(moneyText(item.budget)) + "</td>" +
           '<td class="date">' + esc(item.publish_date || "—") + "</td>" +
           '<td class="date due ' + due.cls + '">' + esc(due.text) + "</td>" +
-          "<td>" + esc(item.source || "") + "</td>" +
+          '<td class="source">' + esc(item.source || "") + "</td>" +
           "</tr>";
       }).join("");
     }
@@ -588,6 +684,45 @@
       selected = {};
       paint();
     };
+    $("hints").onclick = function (e) {
+      var btn = e.target.closest ? e.target.closest("button") : null;
+      if (!btn) return;
+      var word = btn.getAttribute("data-hint") || "";
+      state.q = state.q.trim() === word ? "" : word;
+      dropView();
+      state.page = 1;
+      paint();
+    };
+    $("origin-btn").onclick = function (e) {
+      e.stopPropagation();
+      var menu = $("origin-menu");
+      if (!menu.hidden) { menu.hidden = true; return; }
+      var kw = externalKeyword();
+      menu.innerHTML = ORIGINS.map(function (site) {
+        var href = site.href(kw);
+        var note = site.note;
+        if (!kw && !site.copy) note = "未输入关键词，打开搜索页";
+        return '<a href="' + esc(href) + '" target="_blank" rel="noopener"' + (site.copy && kw ? ' data-copy="1"' : "") + '><strong>' + esc(site.name) + "</strong><span>" + esc(note) + "</span></a>";
+      }).join("");
+      menu.hidden = false;
+    };
+    $("origin-menu").onclick = function (e) {
+      var link = e.target.closest ? e.target.closest("a") : null;
+      if (!link) return;
+      if (link.getAttribute("data-copy") === "1") {
+        var kw = externalKeyword();
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(kw);
+        else fallbackCopy(kw);
+        toast("关键词已复制，请粘贴到打开的搜索框");
+      }
+      $("origin-menu").hidden = true;
+    };
+    document.addEventListener("click", function (e) {
+      var menu = $("origin-menu");
+      if (!menu || menu.hidden) return;
+      if (e.target.closest && e.target.closest(".origin")) return;
+      menu.hidden = true;
+    });
     document.querySelectorAll(".sortable").forEach(function (th) {
       th.onclick = function () {
         var key = th.getAttribute("data-sort");

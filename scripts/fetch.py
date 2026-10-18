@@ -171,6 +171,136 @@ def parse_party(text: str | None, labels: str) -> str:
     return plausible_org(m.group(1))
 
 
+_BUYER_SUFFIXES = (
+    "师范高等专科学校",
+    "高等专科学校",
+    "中等专业学校",
+    "职业技术学院",
+    "职业技术学校",
+    "教育服务保障中心",
+    "职业技术教育中心",
+    "职业教育中心",
+    "青少年活动中心",
+    "疾病预防控制中心",
+    "教育和体育局",
+    "教育体育局",
+    "教育科技局",
+    "检验检测中心",
+    "职教幼教中心",
+    "附属初级中学",
+    "附属小学",
+    "技师学院",
+    "职业学院",
+    "技工学校",
+    "高级中学",
+    "初级中学",
+    "实验小学",
+    "实验中学",
+    "实验学校",
+    "中心学校",
+    "中心校",
+    "中学校",
+    "教育局",
+    "采购中心",
+    "疾控中心",
+    "幼教中心",
+    "人民医院",
+    "幼儿园",
+    "中学",
+    "小学",
+    "学校",
+    "大学",
+    "学院",
+    "高中",
+    "职教中心",
+)
+_BUYER_GENERIC = {
+    "小学", "中学", "学校", "大学", "学院", "高中", "初中", "中小学",
+    "市直学校", "直属学校", "下属学校", "实验学校", "中心学校", "中心校",
+    "教育局", "幼儿园", "职业学院", "职业技术学院", "机关", "本级", "采购中心",
+}
+_BUYER_STOP = ("关于", "招标", "采购", "中标", "成交", "更正", "公告")
+_BUYER_BAD = ("公司", "关于", "有限", "咨询", "代理", "公告", "通知")
+
+
+def _collapse_repeat(name: str) -> str:
+    n = len(name)
+    for size in range(2, n // 2 + 1):
+        if n % size == 0 and name[:size] * (n // size) == name:
+            return name[:size]
+    for size in range(4, n):
+        head, tail = name[:size], name[size:]
+        if tail and head.endswith(tail):
+            return head
+    return name
+
+
+def _buyer_cut(text: str, end: int, suf_len: int) -> int:
+    j = end - suf_len
+    while j > 0:
+        window = text[max(0, j - 16):j]
+        if any(window.endswith(suf) for suf in _BUYER_SUFFIXES):
+            break
+        if any(text[max(0, j - len(s)):j] == s for s in _BUYER_STOP):
+            break
+        ch = text[j - 1]
+        if ch.isdigit():
+            k = j
+            while k > 0 and text[k - 1].isdigit():
+                k -= 1
+            if j - k >= 4:
+                break
+            j = k
+            continue
+        if not ("\u4e00" <= ch <= "\u9fff" or ch == "·"):
+            break
+        j -= 1
+    return j
+
+
+def buyer_from_title(title: str) -> str:
+    """从标题里认采购单位。代理公司不收，学校、学院、教育局优先。"""
+    text = re.sub(r"^【[^】]{1,16}】", "", title or "")
+    found: list[tuple[int, str]] = []
+    for suf in _BUYER_SUFFIXES:
+        start = 0
+        while True:
+            i = text.find(suf, start)
+            if i < 0:
+                break
+            end = i + len(suf)
+            name = _collapse_repeat(text[_buyer_cut(text, end, len(suf)):end])
+            prefix = name[: -len(suf)] if name.endswith(suf) else ""
+            if (
+                name not in _BUYER_GENERIC
+                and len(prefix) >= 2
+                and 4 <= len(name) <= 30
+                and not any(w in name for w in _BUYER_BAD)
+            ):
+                found.append((_buyer_cut(text, end, len(suf)), name))
+            start = end
+    for m in re.finditer(r"[\u4e00-\u9fa5]{2,10}(?:第?[一二三四五六七八九十0-9]{1,3}中)(?![学等校])", text):
+        name = m.group(0)
+        if 4 <= len(name) <= 30 and not any(w in name for w in _BUYER_BAD):
+            found.append((m.start(), name))
+    for m in re.finditer(r"[\u4e00-\u9fa5]{2,8}附中", text):
+        name = m.group(0)
+        if not any(w in name for w in _BUYER_BAD):
+            found.append((m.start(), name))
+    if not found:
+        return ""
+    found.sort(key=lambda x: (x[0], -len(x[1])))
+    leftmost = found[0][0]
+    return max((name for pos, name in found if pos == leftmost), key=len)
+
+
+def clip_summary(text: str) -> str:
+    text = re.sub(r"\s+", " ", text or "").strip()
+    if len(text) < 40:
+        return ""
+    return text[:180]
+
+
 def ymd_from_compact(raw: str) -> str:
     digits = re.sub(r"\D", "", raw or "")
     if len(digits) >= 8:
@@ -378,6 +508,7 @@ def gd_detail(client: Client, entry: dict) -> dict:
         "deadline": parse_deadline(text),
         "buyer": buyer or parse_party(text, "采购人|采购单位|招标人"),
         "winner": parse_party(text, "中标供应商|成交供应商|中标人|成交人|供应商名称"),
+        "summary": clip_summary(text),
     }
 
 
@@ -455,7 +586,7 @@ def fetch_gd(client: Client, rules: dict, pages: int, detail_budget: list[int]) 
         extra = gd_detail(client, rec.pop("_entry"))
         detail_budget[0] -= 1
         detailed += 1
-        for key in ("budget", "deadline", "buyer", "winner"):
+        for key in ("budget", "deadline", "buyer", "winner", "summary"):
             if extra.get(key) and not rec.get(key):
                 rec[key] = extra[key]
     for rec in found.values():
@@ -571,6 +702,8 @@ def fetch_henan(client: Client, rules: dict, pages: int, detail_budget: list[int
         rec["deadline"] = rec["deadline"] or parse_deadline(text)
         rec["buyer"] = rec["buyer"] or parse_party(text, "采购人|采购单位|招标人")
         rec["winner"] = rec["winner"] or parse_party(text, "中标供应商|成交供应商|中标人|成交人")
+        if not rec.get("summary"):
+            rec["summary"] = clip_summary(text)
         if not rec["city"]:
             rec["city"] = henan_city(text[:1500], rules)
     note = f"列表 {listed} 条，标题命中 {len(found)} 条，补详情 {detailed} 条"
@@ -708,6 +841,8 @@ def fetch_ggzy(client: Client, rules: dict, pages: int, time_range: str, detail_
         rec["deadline"] = rec["deadline"] or parse_deadline(text)
         rec["buyer"] = rec["buyer"] or parse_party(text, "采购人|采购单位|招标人")
         rec["winner"] = rec["winner"] or parse_party(text, "中标供应商|成交供应商|中标人|成交人")
+        if not rec.get("summary"):
+            rec["summary"] = clip_summary(text)
         if rec.get("_platform") and not rec["buyer"]:
             pass
     for rec in found.values():
@@ -829,7 +964,7 @@ def merge_items(groups: list[list[dict]], keep_days: int, rules: dict | None = N
                 refine_region(rec, rules)
             hint = rec.get("type_hint") or ""
             rec["budget"] = sanitize_budget(rec.get("budget"))
-            rec["buyer"] = plausible_org(rec.get("buyer") or "")
+            rec["buyer"] = plausible_org(rec.get("buyer") or "") or buyer_from_title(rec.get("title") or "")
             rec["winner"] = plausible_org(rec.get("winner") or "")
             base = "|".join([
                 loose_title(rec.get("title") or ""),
@@ -860,10 +995,14 @@ def merge_items(groups: list[list[dict]], keep_days: int, rules: dict | None = N
                     rec["buyer"] = prev.get("buyer")
                 if prev and not rec.get("winner"):
                     rec["winner"] = prev.get("winner")
+                if prev and not rec.get("summary"):
+                    rec["summary"] = prev.get("summary") or ""
+                if not rec.get("summary"):
+                    rec.pop("summary", None)
                 by_key[key] = rec
             else:
                 prev["keywords"] = sorted(set(prev.get("keywords") or []) | set(rec.get("keywords") or []))
-                for field in ("budget", "deadline", "buyer", "winner"):
+                for field in ("budget", "deadline", "buyer", "winner", "summary"):
                     if not prev.get(field) and rec.get(field):
                         prev[field] = rec[field]
     cutoff = (now_cst() - timedelta(days=keep_days)).strftime("%Y-%m-%d")
@@ -910,6 +1049,13 @@ def self_check() -> None:
     assert henan_city("平顶山学院实验室", rules) == "平顶山"
     assert henan_city("禹州市教育体育局录播教室", rules) == "许昌"
     assert keyword_hits("光山县初中理、化、生 实验室建设项目", rules)
+    assert buyer_from_title("江西明台项目咨询管理有限公司关于南昌市第一中等专业学校人工智能实训室建设") == "南昌市第一中等专业学校"
+    assert buyer_from_title("石嘴山市教育局石嘴山市市直学校智慧教室建设项目") == "石嘴山市教育局"
+    assert buyer_from_title("闽侯二中人工智能教室采购项目") == "闽侯二中"
+    assert buyer_from_title("乌鲁木齐市第97小学智慧黑板采购") == "乌鲁木齐市第97小学"
+    assert buyer_from_title("新建创新实验室第二次中标成交公告") == ""
+    titled = make_item(title="深圳益新中学化学实验室采购项目", url="https://c.example/3", source_id="ggzy", type_hint="招标公告")
+    assert merge_items([[titled]], 120, rules)[0]["buyer"] == "深圳益新中学"
     a = make_item(title="同一公告", url="https://a.example/1", budget=None, source_id="ggzy", type_hint="招标公告")
     b = make_item(title="同一公告", url="https://b.example/2", budget=1000, source_id="gd", type_hint="招标公告", buyer="某学校")
     merged = merge_items([[a], [b]], 120, rules)
@@ -929,9 +1075,13 @@ def main() -> int:
     if args.remerge:
         rules = load_rules()
         keep_days = int((rules.get("抓取") or {}).get("保留天数") or 120)
-        previous_items, previous_sources = load_previous()
-        items = merge_items([previous_items], keep_days, rules)
-        write_output(items, previous_sources)
+        payload = json.loads(DATA_PATH.read_text(encoding="utf-8")) if DATA_PATH.exists() else {}
+        items = merge_items([payload.get("items") or []], keep_days, rules)
+        payload["items"] = items
+        payload["count"] = len(items)
+        payload.setdefault("timezone", "Asia/Shanghai")
+        payload.setdefault("sources", [])
+        DATA_PATH.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
         print(f"remerge {DATA_PATH} items={len(items)}", flush=True)
         return 0
 

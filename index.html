@@ -19,16 +19,26 @@
   <div class="sources" id="sources"></div>
 </header>
 
+<div class="find">
+  <div class="find-row">
+    <label class="q-wrap">
+      <span class="sr">搜索</span>
+      <input id="q" type="search" placeholder="搜索标题、采购单位、正文摘要。空格同时包含，| 或逗号任一包含" autocomplete="off">
+    </label>
+    <div class="origin">
+      <button type="button" id="origin-btn">去原站搜</button>
+      <div id="origin-menu" class="origin-menu" hidden></div>
+    </div>
+  </div>
+  <div class="hints" id="hints"></div>
+</div>
+
 <div class="layout">
   <aside class="side" id="side">
     <div class="side-head mobile-only">
       <strong>筛选</strong>
       <button type="button" class="ghost" id="close-filter">关闭</button>
     </div>
-    <label class="search">
-      <span class="sr">搜索</span>
-      <input id="q" type="search" placeholder="搜索标题、单位、供应商" autocomplete="off">
-    </label>
 
     <section class="block">
       <h2>常用视图</h2>
@@ -88,19 +98,32 @@
     <p class="legend">截止日期：<i class="dot urgent"></i>3 天内 <i class="dot soon"></i>7 天内 <i class="dot over"></i>已截止。点表头可按发布日、截止日、预算排序。勾选后可生成企业微信文字摘要。</p>
     <div class="table-wrap">
       <table>
+        <colgroup>
+          <col class="c-ck">
+          <col class="c-title">
+          <col class="c-region">
+          <col class="c-line">
+          <col class="c-stage">
+          <col class="c-type">
+          <col class="c-buyer">
+          <col class="c-budget">
+          <col class="c-pub">
+          <col class="c-due">
+          <col class="c-src">
+        </colgroup>
         <thead>
           <tr>
             <th class="ck"><input type="checkbox" id="check-page" aria-label="勾选本页"></th>
             <th>标题</th>
-            <th>地区</th>
-            <th>产品线</th>
-            <th>学段</th>
-            <th>类型</th>
-            <th>采购单位</th>
+            <th class="region">地区</th>
+            <th class="line">产品线</th>
+            <th class="stage">学段</th>
+            <th class="type">类型</th>
+            <th class="buyer">采购单位</th>
             <th class="num sortable" data-sort="budget">预算</th>
             <th class="sortable" data-sort="publish">发布</th>
             <th class="sortable" data-sort="deadline">截止</th>
-            <th>来源</th>
+            <th class="source">来源</th>
           </tr>
         </thead>
         <tbody id="rows"></tbody>
