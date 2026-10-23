@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-22 18:31",
+  "updated_at": "2026-10-23 09:48",
   "timezone": "Asia/Shanghai",
   "runner": "github-actions",
   "sources": [
@@ -8,24 +8,24 @@
       "name": "广东省公共资源交易平台",
       "status": "ok",
       "listed": 840,
-      "kept": 15,
-      "note": "列表 840 条，标题命中 15 条，补详情 15 条"
+      "kept": 13,
+      "note": "列表 840 条，标题命中 13 条，补详情 13 条"
     },
     {
       "id": "henan",
       "name": "河南省政府采购网",
       "status": "ok",
-      "listed": 521,
-      "kept": 1,
-      "note": "列表 521 条，标题命中 1 条，补详情 1 条"
+      "listed": 530,
+      "kept": 2,
+      "note": "列表 530 条，标题命中 2 条，补详情 2 条"
     },
     {
       "id": "ggzy",
       "name": "全国公共资源交易平台",
       "status": "ok",
-      "listed": 524,
-      "kept": 444,
-      "note": "近一月检索 524 条，标题命中 444 条，补详情 50 条"
+      "listed": 511,
+      "kept": 432,
+      "note": "近一月检索 511 条，标题命中 432 条，补详情 50 条"
     },
     {
       "id": "ccgp",
@@ -52,7 +52,7 @@
       "note": "HTTP 403，WAF 拒绝"
     }
   ],
-  "count": 432,
+  "count": 433,
   "items": [
     {
       "id": "8956b1ce27d3f4d8",
@@ -112,6 +112,26 @@
         "人工智能实训"
       ],
       "summary": "合同编号：CSHT-LHACG2026000134-A-2026-1 合同名称：深圳市龙华职业技术学校人工智能实训室（ 一 期 ）设备采购项目合同 合同签署时间：2026-10-14 00:00:00 采购人名称：深圳市龙华职业技术学校 人工智能实训室（一期）设备采购项目合同变更征求意见公示 依据《深圳市财政局深圳市政府采购中心关于进一步加强市本级政府采购合"
+    },
+    {
+      "id": "ac1bdf285ed742ba",
+      "title": "ZFCG-G2026109号许昌市第三高级中学“许昌市第三高级中学化学生物实验室设备及附属设施项目”-公开招标公告",
+      "buyer": "许昌市第三高级中学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-10-22",
+      "deadline": "",
+      "source": "河南省政府采购网",
+      "source_id": "henan",
+      "url": "https://zfcg.henan.gov.cn/henan/content?infoId=2033513&channelCode=H710201",
+      "region": "henan",
+      "city": "许昌",
+      "province": "河南",
+      "type_hint": "招标公告",
+      "keywords": [
+        "生物实验室"
+      ],
+      "summary": "河南省政府采购网 河南省政府采购网 您好，欢迎访问河南省政府采购网！ 服务热线：0371-65808207、0371-65808480 进入适老模式 无障碍阅读 首页 工作动态 通知公告 采购信息 购买服务 开标信息 监督管理 政策法规 政策解读 操作指南 文件下载 公众咨询 ZFCG-G2026109号许昌市第三高级中学“许昌市第三高级中学化学生物实验室设"
     },
     {
       "id": "a2cd95faf5d3543b",
@@ -1355,7 +1375,7 @@
       ]
     },
     {
-      "id": "57939b76c710a397",
+      "id": "c785f9000dae188a",
       "title": "微生物实验室改造升级项目其他建筑物、构筑物修缮采购项目竞争性磋商公告",
       "buyer": "",
       "budget": null,
@@ -1364,7 +1384,7 @@
       "deadline": "",
       "source": "全国公共资源交易平台",
       "source_id": "ggzy",
-      "url": "https://www.ggzy.gov.cn/information/deal/html/a/110000/0201/20261020/001124c2d72a84c84c37817df876e53b4f51.html",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/110000/0201/20261020/c5c7fe7931ff0180a67f5e0a1ea17824.html",
       "region": "national",
       "city": "北京",
       "province": "北京",
@@ -1526,7 +1546,7 @@
       ]
     },
     {
-      "id": "d19ef7ed4f7590ca",
+      "id": "75cd8b8f35539376",
       "title": "富顺县教育和体育局中小学第一批智慧黑板更新改造项目招标公告",
       "buyer": "富顺县教育和体育局",
       "budget": null,
@@ -1535,7 +1555,7 @@
       "deadline": "",
       "source": "全国公共资源交易平台",
       "source_id": "ggzy",
-      "url": "https://www.ggzy.gov.cn/information/deal/html/a/510000/0201/20261020/00519941bf49c69643beb97d44df8574794d.html",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/510000/0201/20261020/a20acf02239500f20ec836f360f00fde.html",
       "region": "national",
       "city": "四川省",
       "province": "四川",
