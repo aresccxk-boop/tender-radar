@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-25 09:28",
+  "updated_at": "2026-10-25 18:05",
   "timezone": "Asia/Shanghai",
   "runner": "github-actions",
   "sources": [
@@ -15,17 +15,17 @@
       "id": "henan",
       "name": "河南省政府采购网",
       "status": "ok",
-      "listed": 540,
+      "listed": 524,
       "kept": 1,
-      "note": "列表 540 条，标题命中 1 条，补详情 1 条"
+      "note": "列表 524 条，标题命中 1 条，补详情 1 条"
     },
     {
       "id": "ggzy",
       "name": "全国公共资源交易平台",
       "status": "ok",
-      "listed": 509,
-      "kept": 427,
-      "note": "近一月检索 509 条，标题命中 427 条，补详情 50 条"
+      "listed": 510,
+      "kept": 428,
+      "note": "近一月检索 510 条，标题命中 428 条，补详情 50 条"
     },
     {
       "id": "ccgp",
@@ -54,6 +54,25 @@
   ],
   "count": 510,
   "items": [
+    {
+      "id": "557e6f873c8926a2",
+      "title": "滁州职业技术学院人工智能实验室项目中标结果公告",
+      "buyer": "滁州职业技术学院",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-10-24",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/340000/0201/20261024/fd21ec4f107ff81f8e5c137ea01275e9.html",
+      "region": "national",
+      "city": "安徽省",
+      "province": "安徽",
+      "type_hint": "结果中标",
+      "keywords": [
+        "人工智能实验室"
+      ]
+    },
     {
       "id": "bbc92eeb10cfc731",
       "title": "浙江科佳工程咨询有限公司关于浙江海洋大学微生物实验室空调净化系统采购及安装项目的公开招标公告",
@@ -434,25 +453,6 @@
       "type_hint": "结果中标",
       "keywords": [
         "智慧黑板"
-      ]
-    },
-    {
-      "id": "4474e32503d6ca3d",
-      "title": "滁州职业技术学院人工智能实验室项目中标结果公告",
-      "buyer": "滁州职业技术学院",
-      "budget": null,
-      "winner": "",
-      "publish_date": "2026-10-23",
-      "deadline": "",
-      "source": "全国公共资源交易平台",
-      "source_id": "ggzy",
-      "url": "https://www.ggzy.gov.cn/information/deal/html/a/340000/0202/20261023/0034b2e3a00bdee847f0b82dd881787fad32.html",
-      "region": "national",
-      "city": "安徽省",
-      "province": "安徽",
-      "type_hint": "结果中标",
-      "keywords": [
-        "人工智能实验室"
       ]
     },
     {
