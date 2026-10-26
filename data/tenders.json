@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-25 18:05",
+  "updated_at": "2026-10-26 09:32",
   "timezone": "Asia/Shanghai",
   "runner": "github-actions",
   "sources": [
@@ -15,9 +15,9 @@
       "id": "henan",
       "name": "河南省政府采购网",
       "status": "ok",
-      "listed": 524,
+      "listed": 534,
       "kept": 1,
-      "note": "列表 524 条，标题命中 1 条，补详情 1 条"
+      "note": "列表 534 条，标题命中 1 条，补详情 1 条"
     },
     {
       "id": "ggzy",
@@ -52,8 +52,27 @@
       "note": "HTTP 403，WAF 拒绝"
     }
   ],
-  "count": 510,
+  "count": 511,
   "items": [
+    {
+      "id": "04aa70a3e22b222b",
+      "title": "铜川市耀州区小丘中学智慧黑板等设施设备采购项目竞争性谈判公告",
+      "buyer": "铜川市耀州区小丘中学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-10-25",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/610000/0201/20261025/aeb93a1c68ee6468c7c099361f03fbc8.html",
+      "region": "national",
+      "city": "陕西省",
+      "province": "陕西",
+      "type_hint": "招标公告",
+      "keywords": [
+        "智慧黑板"
+      ]
+    },
     {
       "id": "557e6f873c8926a2",
       "title": "滁州职业技术学院人工智能实验室项目中标结果公告",
