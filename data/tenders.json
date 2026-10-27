@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-27 10:20",
+  "updated_at": "2026-10-27 18:53",
   "timezone": "Asia/Shanghai",
   "runner": "github-actions",
   "sources": [
@@ -15,17 +15,17 @@
       "id": "henan",
       "name": "河南省政府采购网",
       "status": "ok",
-      "listed": 532,
-      "kept": 2,
-      "note": "列表 532 条，标题命中 2 条，补详情 2 条"
+      "listed": 534,
+      "kept": 1,
+      "note": "列表 534 条，标题命中 1 条，补详情 1 条"
     },
     {
       "id": "ggzy",
       "name": "全国公共资源交易平台",
       "status": "ok",
       "listed": 515,
-      "kept": 435,
-      "note": "近一月检索 515 条，标题命中 435 条，补详情 50 条"
+      "kept": 439,
+      "note": "近一月检索 515 条，标题命中 439 条，补详情 50 条"
     },
     {
       "id": "ccgp",
@@ -52,8 +52,84 @@
       "note": "HTTP 403，WAF 拒绝"
     }
   ],
-  "count": 531,
+  "count": 541,
   "items": [
+    {
+      "id": "4e83943974fd2735",
+      "title": "磐石市政府采购中心关于磐石市第一小学等11所学校智慧黑板采购项目的更正公告",
+      "buyer": "磐石市政府采购中心",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-10-27",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/220000/0204/20261027/002217f5a172c0064395add52790daaf560e.html",
+      "region": "national",
+      "city": "吉林省",
+      "province": "吉林",
+      "type_hint": "更正",
+      "keywords": [
+        "智慧黑板"
+      ]
+    },
+    {
+      "id": "afd10fb446a75fd3",
+      "title": "深泽县教育局3所小学智慧黑板购置项目公开招标公告",
+      "buyer": "深泽县教育局",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-10-27",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/130000/0201/20261027/0013f0df5c44a090420d851cc111beaff3b1.html",
+      "region": "national",
+      "city": "河北省",
+      "province": "河北",
+      "type_hint": "招标公告",
+      "keywords": [
+        "智慧黑板"
+      ]
+    },
+    {
+      "id": "66d5964b5efe9e15",
+      "title": "江西衡正招投标技术咨询有限公司关于都昌县天宇小学86寸智慧黑板班班通设备采购项目（项目编号：JXHZ2026TP040）竞争性谈判采购公告",
+      "buyer": "都昌县天宇小学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-10-27",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/360000/0201/20261027/00364e87e34e3d944aa3bb9c4c0fd52a2a24.html",
+      "region": "national",
+      "city": "江西省",
+      "province": "江西",
+      "type_hint": "招标公告",
+      "keywords": [
+        "智慧黑板"
+      ]
+    },
+    {
+      "id": "32a7ece2b654e865",
+      "title": "和龙市正大建设工程招标有限责任公司关于和龙市第七中学校物理实验功能室仪器器材设施设备和化学生物实验室配套设施购置项目的更正公告",
+      "buyer": "和龙市第七中学校",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-10-27",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/220000/0204/20261027/0022447f78fadf814a32a940cb32898952e6.html",
+      "region": "national",
+      "city": "吉林省",
+      "province": "吉林",
+      "type_hint": "更正",
+      "keywords": [
+        "生物实验室"
+      ]
+    },
     {
       "id": "1a0902d65cf68dbc",
       "title": "通河县教育局高中智慧黑板设备采购结果更正公告（第二次）",
@@ -71,6 +147,25 @@
       "type_hint": "更正",
       "keywords": [
         "智慧黑板"
+      ]
+    },
+    {
+      "id": "7325d1075fd8477d",
+      "title": "贵州民族大学智慧教室二期建设项目（设备采购安装部分）的公开招标公告",
+      "buyer": "贵州民族大学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-10-26",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/520000/0201/20261026/0052230001a7e32e450da33d826014204ac8.html",
+      "region": "national",
+      "city": "贵州省",
+      "province": "贵州",
+      "type_hint": "招标公告",
+      "keywords": [
+        "智慧教室"
       ]
     },
     {
@@ -112,6 +207,25 @@
       ]
     },
     {
+      "id": "95da53973faf8194",
+      "title": "理塘县农牧农村和科技局理塘县高原蜜蜂科学与生态教育创新实验室项目招标公告",
+      "buyer": "",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-10-26",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/510000/0201/20261026/1bcf21ec59bcbef2fac5197e34c67cce.html",
+      "region": "national",
+      "city": "四川省",
+      "province": "四川",
+      "type_hint": "招标公告",
+      "keywords": [
+        "创新实验室"
+      ]
+    },
+    {
       "id": "c5e70cfb7382c88b",
       "title": "焦作师范高等专科学校人工智能实训室建设项目-成交公告",
       "buyer": "焦作师范高等专科学校",
@@ -132,22 +246,60 @@
       "summary": "河南省政府采购网 河南省政府采购网 您好，欢迎访问河南省政府采购网！ 服务热线：0371-65808207、0371-65808480 进入适老模式 无障碍阅读 首页 工作动态 通知公告 采购信息 购买服务 开标信息 监督管理 政策法规 政策解读 操作指南 文件下载 公众咨询 焦作师范高等专科学校人工智能实训室建设项目-成交公告 发布机构： 焦作师范高等专科"
     },
     {
-      "id": "7bdb117c045a2049",
-      "title": "江西衡正招投标技术咨询有限公司关于都昌县天宇小学86寸智慧黑板班班通设备采购项目（项目编号：JXHZ2026TP040）竞争性谈判采购公告",
-      "buyer": "都昌县天宇小学",
+      "id": "047db38e2f8efced",
+      "title": "浑源县综合检验检测中心微生物实验室建设项目结果公告",
+      "buyer": "浑源县综合检验检测中心",
       "budget": null,
       "winner": "",
       "publish_date": "2026-10-26",
       "deadline": "",
       "source": "全国公共资源交易平台",
       "source_id": "ggzy",
-      "url": "https://www.ggzy.gov.cn/information/deal/html/a/360000/0201/20261026/4779f9aca9be4845b4053cbc4d8e25c6.html",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/140000/0201/20261026/593a6139a667d1f8f4c8f41817d1afe9.html",
       "region": "national",
-      "city": "江西省",
-      "province": "江西",
+      "city": "山西省",
+      "province": "山西",
+      "type_hint": "结果中标",
+      "keywords": [
+        "生物实验室"
+      ]
+    },
+    {
+      "id": "3782d3c4503318ea",
+      "title": "沁源县职业高级中学公开招标沁源县职业高级中学理化生实验室建设项目的公开招标公告",
+      "buyer": "沁源县职业高级中学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-10-26",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/140000/0201/20261026/ca40eb9605ed8fa00056c15aa4f730c8.html",
+      "region": "national",
+      "city": "山西省",
+      "province": "山西",
       "type_hint": "招标公告",
       "keywords": [
-        "智慧黑板"
+        "理化生实验室"
+      ]
+    },
+    {
+      "id": "8c27a3fd26638697",
+      "title": "武汉职业技术大学光谷校区智慧教室建设配套桌椅购置中标公告",
+      "buyer": "武汉职业技术大学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-10-26",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/420000/0201/20261026/8c5ba4bfc8cc460d4dcb67c36d0476d8.html",
+      "region": "national",
+      "city": "湖北省",
+      "province": "湖北",
+      "type_hint": "结果中标",
+      "keywords": [
+        "智慧教室"
       ]
     },
     {
@@ -322,6 +474,25 @@
       ]
     },
     {
+      "id": "d989b40e298bc21d",
+      "title": "北京市疾病预防控制中心新址消毒与病媒生物实验室设备采购项目公开招标公告",
+      "buyer": "北京市疾病预防控制中心",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-10-26",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/110000/0201/20261026/00114a48fc02c42c4da18e3f8f88ba9b41e4.html",
+      "region": "national",
+      "city": "北京",
+      "province": "北京",
+      "type_hint": "招标公告",
+      "keywords": [
+        "生物实验室"
+      ]
+    },
+    {
       "id": "bc98a95de324e59d",
       "title": "凌海市实验小学智慧黑板、课堂实录与智能评价系统、阅卷系统采购（第三次）竞争性谈判公告",
       "buyer": "凌海市实验小学",
@@ -395,6 +566,25 @@
       "type_hint": "结果中标",
       "keywords": [
         "创新实验室"
+      ]
+    },
+    {
+      "id": "05979dbcb9e31803",
+      "title": "乐至县教育和体育局乐至县教育系统2026年智慧黑板更新改造项目采购更正公告（第一次）",
+      "buyer": "乐至县教育和体育局",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-10-26",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/510000/0204/20261026/0051b067f90478e54b72a5d97a8335b7fde0.html",
+      "region": "national",
+      "city": "四川省",
+      "province": "四川",
+      "type_hint": "更正",
+      "keywords": [
+        "智慧黑板"
       ]
     },
     {
