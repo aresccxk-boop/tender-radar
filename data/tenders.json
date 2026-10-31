@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-31 10:41",
+  "updated_at": "2026-10-31 19:08",
   "timezone": "Asia/Shanghai",
   "runner": "github-actions",
   "sources": [
@@ -14,10 +14,10 @@
     {
       "id": "henan",
       "name": "河南省政府采购网",
-      "status": "ok",
-      "listed": 540,
+      "status": "fail",
+      "listed": 407,
       "kept": 0,
-      "note": "列表 540 条，标题命中 0 条，补详情 0 条"
+      "note": "栏目超时：采购意向 HTTP 200"
     },
     {
       "id": "ggzy",
