@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-01 10:30",
+  "updated_at": "2026-11-01 20:03",
   "timezone": "Asia/Shanghai",
   "runner": "github-actions",
   "sources": [
@@ -8,16 +8,16 @@
       "name": "广东省公共资源交易平台",
       "status": "ok",
       "listed": 840,
-      "kept": 15,
-      "note": "列表 840 条，标题命中 15 条，补详情 15 条"
+      "kept": 14,
+      "note": "列表 840 条，标题命中 14 条，补详情 14 条"
     },
     {
       "id": "henan",
       "name": "河南省政府采购网",
       "status": "ok",
-      "listed": 544,
+      "listed": 535,
       "kept": 0,
-      "note": "列表 544 条，标题命中 0 条，补详情 0 条"
+      "note": "列表 535 条，标题命中 0 条，补详情 0 条"
     },
     {
       "id": "ggzy",
