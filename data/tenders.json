@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-31 19:08",
+  "updated_at": "2026-11-01 10:30",
   "timezone": "Asia/Shanghai",
   "runner": "github-actions",
   "sources": [
@@ -14,18 +14,18 @@
     {
       "id": "henan",
       "name": "河南省政府采购网",
-      "status": "fail",
-      "listed": 407,
+      "status": "ok",
+      "listed": 544,
       "kept": 0,
-      "note": "栏目超时：采购意向 HTTP 200"
+      "note": "列表 544 条，标题命中 0 条，补详情 0 条"
     },
     {
       "id": "ggzy",
       "name": "全国公共资源交易平台",
       "status": "ok",
-      "listed": 528,
-      "kept": 448,
-      "note": "近一月检索 528 条，标题命中 448 条，补详情 50 条"
+      "listed": 520,
+      "kept": 440,
+      "note": "近一月检索 520 条，标题命中 440 条，补详情 50 条"
     },
     {
       "id": "ccgp",
@@ -52,8 +52,46 @@
       "note": "HTTP 403，WAF 拒绝"
     }
   ],
-  "count": 674,
+  "count": 675,
   "items": [
+    {
+      "id": "ff6d9cafe791d534",
+      "title": "武汉铁路职业技术学院通号学院智慧教室升级改造项目合同书",
+      "buyer": "武汉铁路职业技术学院",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-01",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/420000/0203/20261101/004212d8c7b1338f4287bb343bf9b555785e.html",
+      "region": "national",
+      "city": "湖北省",
+      "province": "湖北",
+      "type_hint": "结果中标",
+      "keywords": [
+        "智慧教室"
+      ]
+    },
+    {
+      "id": "c1a0941f6b377589",
+      "title": "青岛市城阳区实验高级中学青岛市城阳区实验高级中学信息化设备（智慧黑板）采购项目",
+      "buyer": "青岛市城阳区实验高级中学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-10-31",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/370000/0201/20261031/0037768ee435571140f79214b405cc0fdca2.html",
+      "region": "national",
+      "city": "山东省",
+      "province": "山东",
+      "type_hint": "招标公告",
+      "keywords": [
+        "智慧黑板"
+      ]
+    },
     {
       "id": "b2025afbc8c5c883",
       "title": "青海金佳裕工程项目管理有限公司关于曲麻莱县中小学智慧黑板购置项目的竞争性磋商公告",
@@ -4782,25 +4820,6 @@
       "region": "national",
       "city": "重庆市",
       "province": "重庆",
-      "type_hint": "招标公告",
-      "keywords": [
-        "智慧黑板"
-      ]
-    },
-    {
-      "id": "a2cd95faf5d3543b",
-      "title": "青岛市城阳区实验高级中学青岛市城阳区实验高级中学信息化设备（智慧黑板）采购项目公开招标公告",
-      "buyer": "青岛市城阳区实验高级中学",
-      "budget": null,
-      "winner": "",
-      "publish_date": "2026-10-21",
-      "deadline": "",
-      "source": "全国公共资源交易平台",
-      "source_id": "ggzy",
-      "url": "https://www.ggzy.gov.cn/information/deal/html/a/370000/0201/20261021/e221f28dec84d0ea6d15218545443076.html",
-      "region": "national",
-      "city": "山东省",
-      "province": "山东",
       "type_hint": "招标公告",
       "keywords": [
         "智慧黑板"
