@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-01 20:03",
+  "updated_at": "2026-11-02 10:44",
   "timezone": "Asia/Shanghai",
   "runner": "github-actions",
   "sources": [
@@ -15,17 +15,17 @@
       "id": "henan",
       "name": "河南省政府采购网",
       "status": "ok",
-      "listed": 535,
+      "listed": 528,
       "kept": 0,
-      "note": "列表 535 条，标题命中 0 条，补详情 0 条"
+      "note": "列表 528 条，标题命中 0 条，补详情 0 条"
     },
     {
       "id": "ggzy",
       "name": "全国公共资源交易平台",
       "status": "ok",
-      "listed": 520,
-      "kept": 440,
-      "note": "近一月检索 520 条，标题命中 440 条，补详情 50 条"
+      "listed": 519,
+      "kept": 439,
+      "note": "近一月检索 519 条，标题命中 439 条，补详情 50 条"
     },
     {
       "id": "ccgp",
@@ -52,7 +52,7 @@
       "note": "HTTP 403，WAF 拒绝"
     }
   ],
-  "count": 675,
+  "count": 676,
   "items": [
     {
       "id": "ff6d9cafe791d534",
@@ -9457,6 +9457,25 @@
       "type_hint": "招标公告",
       "keywords": [
         "智慧教室"
+      ]
+    },
+    {
+      "id": "541e9d838e6fff38",
+      "title": "长沙幼儿师范高等专科学校人工智能实训室（二期）项目第1次中标(成交)结果公告",
+      "buyer": "长沙幼儿师范高等专科学校",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-10-13",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/430000/0202/20261013/004337fda5aed990472e87f4be7b76dce98c.html",
+      "region": "national",
+      "city": "湖南省",
+      "province": "湖南",
+      "type_hint": "结果中标",
+      "keywords": [
+        "人工智能实训"
       ]
     },
     {
