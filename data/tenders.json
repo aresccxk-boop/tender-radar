@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-05 21:31",
+  "updated_at": "2026-11-06 11:36",
   "timezone": "Asia/Shanghai",
   "runner": "github-actions",
   "sources": [
@@ -14,18 +14,18 @@
     {
       "id": "henan",
       "name": "河南省政府采购网",
-      "status": "ok",
-      "listed": 520,
+      "status": "fail",
+      "listed": 0,
       "kept": 0,
-      "note": "列表 520 条，标题命中 0 条，补详情 0 条"
+      "note": "栏目超时：采购意向、招标公告、更正、结果中标"
     },
     {
       "id": "ggzy",
       "name": "全国公共资源交易平台",
       "status": "ok",
-      "listed": 552,
-      "kept": 460,
-      "note": "近一月检索 552 条，标题命中 460 条，补详情 50 条"
+      "listed": 551,
+      "kept": 459,
+      "note": "近一月检索 551 条，标题命中 459 条，补详情 50 条"
     },
     {
       "id": "ccgp",
