@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-08 10:42",
+  "updated_at": "2026-11-08 20:10",
   "timezone": "Asia/Shanghai",
   "runner": "github-actions",
   "sources": [
@@ -15,17 +15,17 @@
       "id": "henan",
       "name": "河南省政府采购网",
       "status": "ok",
-      "listed": 538,
+      "listed": 540,
       "kept": 1,
-      "note": "列表 538 条，标题命中 1 条，补详情 1 条"
+      "note": "列表 540 条，标题命中 1 条，补详情 1 条"
     },
     {
       "id": "ggzy",
       "name": "全国公共资源交易平台",
       "status": "ok",
-      "listed": 562,
+      "listed": 563,
       "kept": 476,
-      "note": "近一月检索 562 条，标题命中 476 条，补详情 50 条"
+      "note": "近一月检索 563 条，标题命中 476 条，补详情 50 条"
     },
     {
       "id": "ccgp",
@@ -52,7 +52,7 @@
       "note": "HTTP 403，WAF 拒绝"
     }
   ],
-  "count": 909,
+  "count": 912,
   "items": [
     {
       "id": "4fd06b67e8f15bf5",
@@ -202,6 +202,25 @@
       "city": "江西省",
       "province": "江西",
       "type_hint": "招标公告",
+      "keywords": [
+        "录播教室"
+      ]
+    },
+    {
+      "id": "b4fe8cd9b4cfca1f",
+      "title": "赣州市隆鑫招标代理有限公司关于江西省于都县罗坳镇中心小学录播教室设备项目（项目编号：GZLX2026-YD-J001）竞争性谈判文件的澄清公告",
+      "buyer": "江西省于都县罗坳镇中心小学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-06",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/360000/0201/20261106/601ab3d3950b68c91aecd841e298b808.html",
+      "region": "national",
+      "city": "江西省",
+      "province": "江西",
+      "type_hint": "更正",
       "keywords": [
         "录播教室"
       ]
@@ -512,6 +531,25 @@
       ]
     },
     {
+      "id": "a9e6272326eaa459",
+      "title": "新疆铭标工程咨询服务有限公司关于可克达拉市第二中学理化生实验室设施设备及仪器采购项目的公开招标公告",
+      "buyer": "可克达拉市第二中学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-06",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/660000/0201/20261106/e68abc2a29ad297dddab7f0256c6e4a4.html",
+      "region": "national",
+      "city": "新疆建设兵团",
+      "province": "新疆建设兵团",
+      "type_hint": "招标公告",
+      "keywords": [
+        "理化生实验室"
+      ]
+    },
+    {
       "id": "9063e1c6c7c2903f",
       "title": "新安小学等学校录播教室设备更新采购项目终止公告",
       "buyer": "新安小学",
@@ -780,7 +818,7 @@
       ]
     },
     {
-      "id": "124790276404bff3",
+      "id": "e6749ff84f50da45",
       "title": "兴文县教育和体育局兴文县2026年学校交互式多媒体教学设备（智慧黑板）采购项目竞争性谈判公告",
       "buyer": "兴文县教育和体育局",
       "budget": null,
@@ -789,7 +827,7 @@
       "deadline": "",
       "source": "全国公共资源交易平台",
       "source_id": "ggzy",
-      "url": "https://www.ggzy.gov.cn/information/deal/html/a/510000/0201/20261106/00513e73aae8860e4d9c80354914a76d4d8d.html",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/510000/0201/20261106/8cd00e53e0a7ed2a9fcf346bffe433d0.html",
       "region": "national",
       "city": "四川省",
       "province": "四川",
@@ -1009,7 +1047,7 @@
       ]
     },
     {
-      "id": "a4fe030fdc55a0cd",
+      "id": "6c398a13ab3212ff",
       "title": "达拉特旗教育体育局达拉特旗2026年教体系统设施设备采购（信息科技创新实验室设施设备）中标（成交）结果公告",
       "buyer": "达拉特旗教育体育局",
       "budget": null,
@@ -1018,7 +1056,7 @@
       "deadline": "",
       "source": "全国公共资源交易平台",
       "source_id": "ggzy",
-      "url": "https://www.ggzy.gov.cn/information/deal/html/a/150000/0202/20261105/00156ee02f13025f442981c8ecd004f321b6.html",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/150000/0201/20261105/38d4c1cd001ccbd5bac8194ab8c18afc.html",
       "region": "national",
       "city": "内蒙古自治区",
       "province": "内蒙古自治区",
@@ -1544,6 +1582,25 @@
       "type_hint": "招标公告",
       "keywords": [
         "智慧黑板"
+      ]
+    },
+    {
+      "id": "6067d8c144d22bf5",
+      "title": "勃利县第四中学采购初中生物实验室基础设备及配套AI智能实验考评系统项目采购更正公告（第一次）",
+      "buyer": "勃利县第四中学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-05",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/230000/0201/20261105/db79b849823d3dd4da414c455509266c.html",
+      "region": "national",
+      "city": "黑龙江省",
+      "province": "黑龙江",
+      "type_hint": "更正",
+      "keywords": [
+        "生物实验室"
       ]
     },
     {
