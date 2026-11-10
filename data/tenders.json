@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-09 22:17",
+  "updated_at": "2026-11-10 12:49",
   "timezone": "Asia/Shanghai",
   "runner": "github-actions",
   "sources": [
@@ -14,18 +14,18 @@
     {
       "id": "henan",
       "name": "河南省政府采购网",
-      "status": "partial",
-      "listed": 388,
+      "status": "ok",
+      "listed": 544,
       "kept": 4,
-      "note": "列表 388 条，标题命中 4 条，补详情 4 条；这些栏目超时已跳过：采购意向"
+      "note": "列表 544 条，标题命中 4 条，补详情 4 条"
     },
     {
       "id": "ggzy",
       "name": "全国公共资源交易平台",
       "status": "ok",
-      "listed": 561,
-      "kept": 473,
-      "note": "近一月检索 561 条，标题命中 473 条，补详情 50 条"
+      "listed": 560,
+      "kept": 470,
+      "note": "近一月检索 560 条，标题命中 470 条，补详情 50 条"
     },
     {
       "id": "ccgp",
@@ -52,8 +52,66 @@
       "note": "HTTP 403，WAF 拒绝"
     }
   ],
-  "count": 945,
+  "count": 970,
   "items": [
+    {
+      "id": "6380b616a7c9a542",
+      "title": "都昌县天宇小学86寸智慧黑板班班通设备采购项目",
+      "buyer": "都昌县天宇小学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-10",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/360000/0201/20261110/00364f47f53cee274002bf66119452ee686e.html",
+      "region": "national",
+      "city": "江西省",
+      "province": "江西",
+      "type_hint": "招标公告",
+      "keywords": [
+        "智慧黑板"
+      ]
+    },
+    {
+      "id": "ad3dee38f084fc3b",
+      "title": "唐河县中等职业学校物理、化学、生物实验室仪器设备采购项目-竞争性磋商公告",
+      "buyer": "唐河县中等职业学校",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-10",
+      "deadline": "",
+      "source": "河南省政府采购网",
+      "source_id": "henan",
+      "url": "https://zfcg.henan.gov.cn/henan/content?infoId=2042060&channelCode=H740601",
+      "region": "henan",
+      "city": "南阳",
+      "province": "河南",
+      "type_hint": "招标公告",
+      "keywords": [
+        "生物实验室"
+      ],
+      "summary": "河南省政府采购网 河南省政府采购网 您好，欢迎访问河南省政府采购网！ 服务热线：0371-65808207、0371-65808480 进入适老模式 无障碍阅读 首页 工作动态 通知公告 采购信息 购买服务 开标信息 监督管理 政策法规 政策解读 操作指南 文件下载 公众咨询 唐河县中等职业学校物理、化学、生物实验室仪器设备采购项目-竞争性磋商公告 发布机构"
+    },
+    {
+      "id": "de87d8266572f192",
+      "title": "齐齐哈尔高等师范专科学校人工智能实训室、虚拟演播室、特教融合实训室、0-3岁综合实训室、学前多功能教室、舞蹈实训室、心理咨询专业实训室、多媒体教室家具(三次)招标公告",
+      "buyer": "齐齐哈尔高等师范专科学校",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-09",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/230000/0201/20261109/c26a9341a964c66b5380d1ded4f67f5d.html",
+      "region": "national",
+      "city": "黑龙江省",
+      "province": "黑龙江",
+      "type_hint": "招标公告",
+      "keywords": [
+        "人工智能实训"
+      ]
+    },
     {
       "id": "dbdeb118fd0bdcdb",
       "title": "黑龙江农业经济职业学院信息工程系人工智能实训室（第二批职教央财增值性评价）竞争性磋商公告",
@@ -71,6 +129,82 @@
       "type_hint": "招标公告",
       "keywords": [
         "人工智能实训"
+      ]
+    },
+    {
+      "id": "ef7f74500dbccfd1",
+      "title": "青铜峡市第五小学人工智能赋能教育行动试点-人工智能实验室（智慧体育建设项目）中标公告",
+      "buyer": "青铜峡市第五小学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-09",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/640000/0201/20261109/93ba94e085eefc4882499cf36901a3e8.html",
+      "region": "national",
+      "city": "宁夏回族自治区",
+      "province": "宁夏回族自治区",
+      "type_hint": "结果中标",
+      "keywords": [
+        "人工智能实验室"
+      ]
+    },
+    {
+      "id": "d48e241ca3c5a969",
+      "title": "陕西农林职业技术大学2026年智慧教室建设项目（三期）招标公告",
+      "buyer": "陕西农林职业技术大学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-09",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/610000/0201/20261109/c666ef21debaa97aaf576afb1520e2de.html",
+      "region": "national",
+      "city": "陕西省",
+      "province": "陕西",
+      "type_hint": "招标公告",
+      "keywords": [
+        "智慧教室"
+      ]
+    },
+    {
+      "id": "27e366094845ae29",
+      "title": "银川市宁华学校智慧教室采购项目补充事项公告(一次)",
+      "buyer": "银川市宁华学校",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-09",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/640000/0204/20261109/00647b9ec4af49344023bd05be955be30bef.html",
+      "region": "national",
+      "city": "宁夏回族自治区",
+      "province": "宁夏回族自治区",
+      "type_hint": "更正",
+      "keywords": [
+        "智慧教室"
+      ]
+    },
+    {
+      "id": "91d22e2953e5bade",
+      "title": "银川市宁华学校智慧教室采购项目补充事项公告(一次)",
+      "buyer": "银川市宁华学校",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-09",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/640000/0201/20261109/f1d738774bc8ecbc8778f93623893f49.html",
+      "region": "national",
+      "city": "宁夏回族自治区",
+      "province": "宁夏回族自治区",
+      "type_hint": "招标公告",
+      "keywords": [
+        "智慧教室"
       ]
     },
     {
@@ -112,6 +246,25 @@
       ]
     },
     {
+      "id": "32f5ff2dd501be34",
+      "title": "重庆工贸职业技术学院智慧教室常态化教学录播设备（重新启动）(CQS26A04284)公开招标公告",
+      "buyer": "重庆工贸职业技术学院",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-09",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/500000/0201/20261109/00509468393a8a674897be3db5d9fc6c8163.html",
+      "region": "national",
+      "city": "重庆市",
+      "province": "重庆",
+      "type_hint": "招标公告",
+      "keywords": [
+        "智慧教室"
+      ]
+    },
+    {
       "id": "209ce1fc86e30abc",
       "title": "鄂尔多斯市东胜区第一小学智慧黑板采购（二次）中标（成交）结果公告",
       "buyer": "鄂尔多斯市东胜区第一小学",
@@ -131,7 +284,7 @@
       ]
     },
     {
-      "id": "12e33fba7f572d1e",
+      "id": "f42f52551d86481c",
       "title": "遂宁市涪江初级中学校智慧黑板采购项目招标公告",
       "buyer": "遂宁市涪江初级中学校",
       "budget": null,
@@ -140,7 +293,7 @@
       "deadline": "",
       "source": "全国公共资源交易平台",
       "source_id": "ggzy",
-      "url": "https://www.ggzy.gov.cn/information/deal/html/a/510000/0201/20261109/0051489da8e4c1bd4cfa88b45e1df2e38e6e.html",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/510000/0201/20261109/357d423ad6f8c7053e36730c771d173d.html",
       "region": "national",
       "city": "四川省",
       "province": "四川",
@@ -150,7 +303,45 @@
       ]
     },
     {
-      "id": "2dcf98a3b0f53c20",
+      "id": "eb70648f49a0f52d",
+      "title": "达拉特旗教育体育局达拉特旗2026年教体系统设施设备采购（信息科技创新实验室设施设备）(二次)采购更正公告（第一次）",
+      "buyer": "达拉特旗教育体育局",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-09",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/150000/0201/20261109/4d791a03ffa1cae2c479ac2af0c786b4.html",
+      "region": "national",
+      "city": "内蒙古自治区",
+      "province": "内蒙古自治区",
+      "type_hint": "更正",
+      "keywords": [
+        "创新实验室"
+      ]
+    },
+    {
+      "id": "755be1f2d7722376",
+      "title": "辽阳市白塔区二道街小学采购班班通（智慧黑板）项目（第二次）更正公告",
+      "buyer": "辽阳市白塔区二道街小学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-09",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/210000/0201/20261109/44dffa08f1feee222849fd7dc97ff8d8.html",
+      "region": "national",
+      "city": "辽宁省",
+      "province": "辽宁",
+      "type_hint": "更正",
+      "keywords": [
+        "智慧黑板"
+      ]
+    },
+    {
+      "id": "e0dfa5d5ad630d76",
       "title": "辽宁轻工职业学院智慧教室改造项目（第二次）招标公告",
       "buyer": "辽宁轻工职业学院",
       "budget": null,
@@ -159,7 +350,7 @@
       "deadline": "",
       "source": "全国公共资源交易平台",
       "source_id": "ggzy",
-      "url": "https://www.ggzy.gov.cn/information/deal/html/a/210000/0201/20261109/0021a77dc9977c0d4b96b819e5689438b992.html",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/210000/0201/20261109/de0ffb959634741e282bcd4fbf7a01e4.html",
       "region": "national",
       "city": "辽宁省",
       "province": "辽宁",
@@ -188,7 +379,45 @@
       ]
     },
     {
-      "id": "a8716d49f41e238b",
+      "id": "b5db97d899b0e153",
+      "title": "西安邮电大学计算机国产化根技术融合创新实验室系统能力提升建设项目(二次)中标（成交）结果公告",
+      "buyer": "西安邮电大学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-09",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/610000/0201/20261109/94ae0c422a8ec44a066edc14f022d1bf.html",
+      "region": "national",
+      "city": "陕西省",
+      "province": "陕西",
+      "type_hint": "结果中标",
+      "keywords": [
+        "创新实验室"
+      ]
+    },
+    {
+      "id": "1bd2f44aec1b4f4c",
+      "title": "西安市曲江第二中学理化生实验室数字化仪器采购项目竞争性谈判公告",
+      "buyer": "西安市曲江第二中学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-09",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/000000/0201/20261109/f71c4d46b108c793817b0b884bad6892.html",
+      "region": "national",
+      "city": "",
+      "province": "",
+      "type_hint": "招标公告",
+      "keywords": [
+        "理化生实验室"
+      ]
+    },
+    {
+      "id": "b030510cd7a76b8a",
       "title": "白山市第十六中学理化生实验室升级改造项目中标(成交)结果公告",
       "buyer": "白山市第十六中学",
       "budget": null,
@@ -197,7 +426,7 @@
       "deadline": "",
       "source": "全国公共资源交易平台",
       "source_id": "ggzy",
-      "url": "https://www.ggzy.gov.cn/information/deal/html/a/220000/0202/20261109/00222dd203542e30420bb165c001e830b12a.html",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/220000/0201/20261109/45693b0078c105f13466e78ba9e24d8d.html",
       "region": "national",
       "city": "吉林省",
       "province": "吉林",
@@ -223,6 +452,44 @@
       "type_hint": "招标公告",
       "keywords": [
         "智慧黑板"
+      ]
+    },
+    {
+      "id": "60566e92b59d7b93",
+      "title": "淄博市淄川中学校舍改扩建工程内配采购项目-办公教学家具、理化生实验室设备结果公告（采购包2）",
+      "buyer": "淄博市淄川中学校",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-09",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/370000/0201/20261109/a9cbf9fa8aa251c733bd55f04415990e.html",
+      "region": "national",
+      "city": "山东省",
+      "province": "山东",
+      "type_hint": "结果中标",
+      "keywords": [
+        "理化生实验室"
+      ]
+    },
+    {
+      "id": "538abcb439d1ec4b",
+      "title": "浙江至诚工程咨询有限责任公司关于智慧教室数字化录播项目中标(成交)结果公告",
+      "buyer": "",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-09",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/330000/0202/20261109/0033c7047cf5b96243ddbba5de1be85186c3.html",
+      "region": "national",
+      "city": "浙江省",
+      "province": "浙江",
+      "type_hint": "结果中标",
+      "keywords": [
+        "智慧教室"
       ]
     },
     {
@@ -264,7 +531,45 @@
       ]
     },
     {
-      "id": "9796adc04bd90ec0",
+      "id": "f60fb487601ed832",
+      "title": "汉滨区职业教育中心信息化及实训室建设项目（理化生实验室建设-第二批）(二次)中标（成交）结果公告",
+      "buyer": "汉滨区职业教育中心",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-09",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/610000/0201/20261109/7652cccae6b3dc330d684d97a79f583d.html",
+      "region": "national",
+      "city": "陕西省",
+      "province": "陕西",
+      "type_hint": "结果中标",
+      "keywords": [
+        "理化生实验室"
+      ]
+    },
+    {
+      "id": "f5140d17addc232f",
+      "title": "武汉市英格中学购买理化生实验室普教以及成套设备公开招标公告",
+      "buyer": "武汉市英格中学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-09",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/420000/0201/20261109/9a6bafe8971950c60ff87ab01534b284.html",
+      "region": "national",
+      "city": "湖北省",
+      "province": "湖北",
+      "type_hint": "招标公告",
+      "keywords": [
+        "理化生实验室"
+      ]
+    },
+    {
+      "id": "cef5bf39d725a1ba",
       "title": "松原市宁江区政府采购中心关于松原市宁江区实验小学2025年薄弱环节改善与能力提升工程项目-智慧黑板采购项目的询价公告",
       "buyer": "松原市宁江区政府采购中心",
       "budget": null,
@@ -273,7 +578,7 @@
       "deadline": "",
       "source": "全国公共资源交易平台",
       "source_id": "ggzy",
-      "url": "https://www.ggzy.gov.cn/information/deal/html/a/220000/0201/20261109/002288bfe265179f4c33b573bdc91acd385a.html",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/220000/0201/20261109/5f2712021284c05a2c0eae49047167ba.html",
       "region": "national",
       "city": "吉林省",
       "province": "吉林",
@@ -283,16 +588,54 @@
       ]
     },
     {
-      "id": "3342f84bde788467",
-      "title": "开封大学智慧教室建设项目-竞争性谈判公告",
-      "buyer": "开封大学",
+      "id": "1fcf39b76f09ba3e",
+      "title": "新疆生产建设兵团公共资源交易中心第一分中心关于第一师第二中学（高中部）2026年办学条件提升与设施更新项目-智慧黑板、数印机等设备的更正公告",
+      "buyer": "第一师第二中学",
       "budget": null,
       "winner": "",
       "publish_date": "2026-11-09",
       "deadline": "",
-      "source": "河南省政府采购网",
-      "source_id": "henan",
-      "url": "https://zfcg.henan.gov.cn/henan/content?infoId=2041753&channelCode=H620101",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/660000/0204/20261109/0066340c6fdcd7af420fac8bcf5111a13350.html",
+      "region": "national",
+      "city": "新疆建设兵团",
+      "province": "新疆建设兵团",
+      "type_hint": "更正",
+      "keywords": [
+        "智慧黑板"
+      ]
+    },
+    {
+      "id": "9787478ad81a1ce6",
+      "title": "成都市龙泉驿区教育局龙泉驿区教育局2026年中小学智慧黑板更新改造项目中标（成交）结果公告",
+      "buyer": "成都市龙泉驿区教育局",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-09",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/510000/0201/20261109/b998cdd4c6f8828d1c912c5579584e97.html",
+      "region": "national",
+      "city": "四川省",
+      "province": "四川",
+      "type_hint": "结果中标",
+      "keywords": [
+        "智慧黑板"
+      ]
+    },
+    {
+      "id": "010494f7c7e6d522",
+      "title": "开封大学智慧教室建设项目-竞争性谈判公告",
+      "buyer": "及采购中心仅作为平台使用方不负责解决技术问题",
+      "budget": 1266613.75,
+      "winner": "",
+      "publish_date": "2026-11-09",
+      "deadline": "2026-11-19",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/410000/0201/20261109/e36fb25e6eab5a1bedb213b1018ea07e.html",
       "region": "henan",
       "city": "开封",
       "province": "河南",
@@ -300,7 +643,7 @@
       "keywords": [
         "智慧教室"
       ],
-      "summary": "河南省政府采购网 河南省政府采购网 您好，欢迎访问河南省政府采购网！ 服务热线：0371-65808207、0371-65808480 进入适老模式 无障碍阅读 首页 工作动态 通知公告 采购信息 购买服务 开标信息 监督管理 政策法规 政策解读 操作指南 文件下载 公众咨询 开封大学智慧教室建设项目-竞争性谈判公告 发布机构： 开封大学 发布日期： 202"
+      "summary": "全国公共资源交易平台 开封大学智慧教室建设项目-竞争性谈判公告 发布时间：2026-11-09 16:19 信息来源： 原文链接地址 公告内容文档 中小微企业融资申请 项目概况 开封大学智慧教室建设项目 招标项目的潜在投标人应在 《开封市公共资源交易信息网》电子交易系统。 获取招标文件，并于 2026年11月19日09时25分 （北京时间）前递交响应文件。 "
     },
     {
       "id": "4a5f53bbb130db33",
@@ -343,7 +686,7 @@
       "summary": "采购项目编号：ZYGA264105027 采购项目名称：广州市番禺区象贤中学物理、化学实验室更新项目 采购预算金额：1400000.000000 项目概况 广州市番禺区象贤中学物理、化学实验室更新项目 招标项目的潜在投标人应在 广东省政府采购网https://gdgpo.czt.gd.gov.cn/ 获取招标文件，并于 2026年11月30日 14时00分 "
     },
     {
-      "id": "cc3b6abb23ce1f96",
+      "id": "7f6fae3c11e40c9a",
       "title": "山东省烟台市蓬莱区山东省蓬莱第一中学智慧黑板采购中标结果公告",
       "buyer": "山东省烟台市蓬莱区山东省蓬莱第一中学",
       "budget": null,
@@ -352,7 +695,7 @@
       "deadline": "",
       "source": "全国公共资源交易平台",
       "source_id": "ggzy",
-      "url": "https://www.ggzy.gov.cn/information/deal/html/a/370000/0202/20261109/0037c4ce034411cf44bda70bb905bbf5b688.html",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/370000/0201/20261109/7a440a1f5de0f91dd33b743bb60ec381.html",
       "region": "national",
       "city": "山东省",
       "province": "山东",
@@ -382,7 +725,83 @@
       "summary": "河南省政府采购网 河南省政府采购网 您好，欢迎访问河南省政府采购网！ 服务热线：0371-65808207、0371-65808480 进入适老模式 无障碍阅读 首页 工作动态 通知公告 采购信息 购买服务 开标信息 监督管理 政策法规 政策解读 操作指南 文件下载 公众咨询 安阳县职业中等专业学校现代职业教育质量提升2025年度建设任务智慧黑板 、学生宿舍"
     },
     {
-      "id": "ac3db13e9121bed0",
+      "id": "54e0641ba725f0ba",
+      "title": "四川师范大学2026年公共智慧教室建设更新项目（一）招标公告",
+      "buyer": "四川师范大学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-09",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/510000/0201/20261109/0e9c5a331d599dcd231934e451dd2fe8.html",
+      "region": "national",
+      "city": "四川省",
+      "province": "四川",
+      "type_hint": "招标公告",
+      "keywords": [
+        "智慧教室"
+      ]
+    },
+    {
+      "id": "e3dc805cdb2d259d",
+      "title": "哈尔滨师范大学大学物理实验室建设项目招标公告",
+      "buyer": "哈尔滨师范大学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-09",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/230000/0201/20261109/bb0cc00a67fa8ac384e019ee11407536.html",
+      "region": "national",
+      "city": "黑龙江省",
+      "province": "黑龙江",
+      "type_hint": "招标公告",
+      "keywords": [
+        "物理实验室"
+      ]
+    },
+    {
+      "id": "978ad30fb8d32079",
+      "title": "咸阳市渭城区文林学校智慧黑板采购项目(三次)竞争性谈判公告",
+      "buyer": "咸阳市渭城区文林学校",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-09",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/610000/0201/20261109/82d07a5bac69cd762eda3268323beb0f.html",
+      "region": "national",
+      "city": "陕西省",
+      "province": "陕西",
+      "type_hint": "招标公告",
+      "keywords": [
+        "智慧黑板"
+      ]
+    },
+    {
+      "id": "5b9368356e21cefd",
+      "title": "南京理工大学第二教学楼智慧教室课桌椅采购更正公告",
+      "buyer": "南京理工大学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-09",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/320000/0201/20261109/2c8382a49fdb017f01a1bfd4fd565e07.html",
+      "region": "national",
+      "city": "江苏省",
+      "province": "江苏",
+      "type_hint": "更正",
+      "keywords": [
+        "智慧教室"
+      ]
+    },
+    {
+      "id": "2bf92485ad5f0131",
       "title": "北京市疾病预防控制中心新址微生物实验室更新及新采购设备项目更正公告（二次）",
       "buyer": "北京市疾病预防控制中心",
       "budget": null,
@@ -391,7 +810,7 @@
       "deadline": "",
       "source": "全国公共资源交易平台",
       "source_id": "ggzy",
-      "url": "https://www.ggzy.gov.cn/information/deal/html/a/110000/0204/20261109/0011e7833f263c2f4b30bacccebea859e8b2.html",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/110000/0201/20261109/40e15bebf51ff9f4ccd651a5ae77869e.html",
       "region": "national",
       "city": "北京",
       "province": "北京",
@@ -401,7 +820,26 @@
       ]
     },
     {
-      "id": "1e8cc1c1217eccf4",
+      "id": "25c0fc7f099e6138",
+      "title": "勃利县第一中学采购初中化学实验室基础设备及配套AI智能实验考评系统项目采购更正公告（第一次）",
+      "buyer": "勃利县第一中学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-09",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/230000/0201/20261109/c239132d516a4cc3e2fd60c17b11d9ca.html",
+      "region": "national",
+      "city": "黑龙江省",
+      "province": "黑龙江",
+      "type_hint": "更正",
+      "keywords": [
+        "化学实验室"
+      ]
+    },
+    {
+      "id": "f6154fcd73c84754",
       "title": "凌海市育才学校课堂实录与智能评价系统、智慧黑板、耳机、阅卷系统采购项目竞争性谈判公告",
       "buyer": "凌海市育才学校",
       "budget": null,
@@ -410,7 +848,7 @@
       "deadline": "",
       "source": "全国公共资源交易平台",
       "source_id": "ggzy",
-      "url": "https://www.ggzy.gov.cn/information/deal/html/a/210000/0201/20261109/002169d107d23d194ff48e6e0010e616506a.html",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/210000/0201/20261109/08defdfbc728c38ee89f541e61604325.html",
       "region": "national",
       "city": "辽宁省",
       "province": "辽宁",
@@ -440,6 +878,25 @@
       "summary": "采购计划编号：440601-2026-03495 一、采购人 佛山大学 二、采购计划编号 440601-2026-03495 三、采购计划名称 佛山大学智慧教室设备更新 四、采购品目名称 话筒设备,话筒设备,其他音频设备,音频功率放大器设备（功放设备）,音箱,普通电视设备（电视机）,普通电视设备（电视机）,人造板表面装饰板,专业摄像机和信号源设备,视频信息处"
     },
     {
+      "id": "e4095a9d2d997e84",
+      "title": "会泽县实验高级中学校关于会泽县实验高级中学理化生实验室设施设备及仪器仪表药剂采购（二次）的更正公告",
+      "buyer": "会泽县实验高级中学校",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-09",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/530000/0201/20261109/16d8a376db2f956fa45902d24618f2a8.html",
+      "region": "national",
+      "city": "云南省",
+      "province": "云南",
+      "type_hint": "更正",
+      "keywords": [
+        "理化生实验室"
+      ]
+    },
+    {
       "id": "7baf5ce99d3d8288",
       "title": "丰镇市马桥街小学智慧黑板采购项目询价公告",
       "buyer": "丰镇市马桥街小学",
@@ -456,6 +913,25 @@
       "type_hint": "招标公告",
       "keywords": [
         "智慧黑板"
+      ]
+    },
+    {
+      "id": "90ef7f027e5cddd4",
+      "title": "中北大学竞争性谈判传感器实验综合系统等实验教学设备购置的竞争性谈判公告",
+      "buyer": "中北大学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-09",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/140000/0201/20261109/9ab61354d28aad2e749f23ecca06f5e6.html",
+      "region": "national",
+      "city": "山西省",
+      "province": "山西",
+      "type_hint": "招标公告",
+      "keywords": [
+        "传感器"
       ]
     },
     {
@@ -574,7 +1050,7 @@
       ]
     },
     {
-      "id": "6bcb1922ebe8fde6",
+      "id": "94e2580f54c94f31",
       "title": "广西睿诚工程管理有限公司关于桂林市临桂区教育局录播教室设备项目的更正公告",
       "buyer": "桂林市临桂区教育局",
       "budget": null,
@@ -583,7 +1059,7 @@
       "deadline": "",
       "source": "全国公共资源交易平台",
       "source_id": "ggzy",
-      "url": "https://www.ggzy.gov.cn/information/deal/html/a/450000/0204/20261107/0045cafa6563c776455aa0dfa8a86f481998.html",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/450000/0201/20261107/bfdf0c8e3aa3147d82085ae30e6a7bc1.html",
       "region": "national",
       "city": "广西壮族自治区",
       "province": "广西壮族自治区",
@@ -1240,7 +1716,7 @@
       ]
     },
     {
-      "id": "e29eb2f2c72fc2cd",
+      "id": "1306574697d23f40",
       "title": "微生物实验室仪器设备采购招标公告",
       "buyer": "",
       "budget": null,
@@ -1249,7 +1725,7 @@
       "deadline": "",
       "source": "全国公共资源交易平台",
       "source_id": "ggzy",
-      "url": "https://www.ggzy.gov.cn/information/deal/html/a/210000/0201/20261106/0021c11dd3bed29d4ef1b02785a38b6acafe.html",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/210000/0201/20261106/6b6df65960de3dab3979a34d73e85c52.html",
       "region": "national",
       "city": "辽宁省",
       "province": "辽宁",
@@ -1275,6 +1751,25 @@
       "type_hint": "结果中标",
       "keywords": [
         "智慧黑板"
+      ]
+    },
+    {
+      "id": "237a10dcefb13346",
+      "title": "山东城市建设职业学院绿色低碳建造专业群智慧教室建设项目",
+      "buyer": "山东城市建设职业学院",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-06",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/370000/0203/20261106/00378204a734dd544bbb83a893bab75df1f7.html",
+      "region": "national",
+      "city": "山东省",
+      "province": "山东",
+      "type_hint": "结果中标",
+      "keywords": [
+        "智慧教室"
       ]
     },
     {
@@ -2479,25 +2974,6 @@
       "city": "江西省",
       "province": "江西",
       "type_hint": "招标公告",
-      "keywords": [
-        "智慧黑板"
-      ]
-    },
-    {
-      "id": "d0cb4c06b71dbfed",
-      "title": "辽阳市白塔区二道街小学采购班班通（智慧黑板）项目（第二次）更正公告",
-      "buyer": "辽阳市白塔区二道街小学",
-      "budget": null,
-      "winner": "",
-      "publish_date": "2026-11-04",
-      "deadline": "",
-      "source": "全国公共资源交易平台",
-      "source_id": "ggzy",
-      "url": "https://www.ggzy.gov.cn/information/deal/html/a/210000/0201/20261104/495a084be5b2df5c16fbde5804d388c8.html",
-      "region": "national",
-      "city": "辽宁省",
-      "province": "辽宁",
-      "type_hint": "更正",
       "keywords": [
         "智慧黑板"
       ]
