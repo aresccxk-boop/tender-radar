@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-10 12:49",
+  "updated_at": "2026-11-10 21:46",
   "timezone": "Asia/Shanghai",
   "runner": "github-actions",
   "sources": [
@@ -15,17 +15,17 @@
       "id": "henan",
       "name": "河南省政府采购网",
       "status": "ok",
-      "listed": 544,
-      "kept": 4,
-      "note": "列表 544 条，标题命中 4 条，补详情 4 条"
+      "listed": 532,
+      "kept": 1,
+      "note": "列表 532 条，标题命中 1 条，补详情 1 条"
     },
     {
       "id": "ggzy",
       "name": "全国公共资源交易平台",
       "status": "ok",
-      "listed": 560,
-      "kept": 470,
-      "note": "近一月检索 560 条，标题命中 470 条，补详情 50 条"
+      "listed": 561,
+      "kept": 469,
+      "note": "近一月检索 561 条，标题命中 469 条，补详情 50 条"
     },
     {
       "id": "ccgp",
@@ -52,8 +52,28 @@
       "note": "HTTP 403，WAF 拒绝"
     }
   ],
-  "count": 970,
+  "count": 975,
   "items": [
+    {
+      "id": "f50ac9b921f1608f",
+      "title": "香港城市大学（东莞）2026年教学研讨室与智慧教室多媒体系统设备采购项目",
+      "buyer": "香港城市大学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-10",
+      "deadline": "",
+      "source": "广东省公共资源交易平台",
+      "source_id": "gd",
+      "url": "https://ygp.gdzwfw.gov.cn/#/44/new/jygg/v3/D?noticeId=8a7edc65a0750b8801a1c42a95350ee&projectCode=441901-2026-07868&bizCode=3831&siteCode=441900&publishDate=20261110160021&source=%E5%B9%BF%E4%B8%9C%E6%94%BF%E5%BA%9C%E9%87%87%E8%B4%AD%E6%99%BA%E6%85%A7%E4%BA%91%E5%B9%B3%E5%8F%B0&titleDetails=%E6%94%BF%E5%BA%9C%E9%87%87%E8%B4%AD&classify=",
+      "region": "guangdong",
+      "city": "东莞市",
+      "province": "广东",
+      "type_hint": "招标公告",
+      "keywords": [
+        "智慧教室"
+      ],
+      "summary": "采购项目名称：香港城市大学（东莞）2026年教学研讨室与智慧教室多媒体系统设备采购项目 采购项目编号：441901-2026-07868 公告性质："
+    },
     {
       "id": "6380b616a7c9a542",
       "title": "都昌县天宇小学86寸智慧黑板班班通设备采购项目",
@@ -74,16 +94,73 @@
       ]
     },
     {
-      "id": "ad3dee38f084fc3b",
-      "title": "唐河县中等职业学校物理、化学、生物实验室仪器设备采购项目-竞争性磋商公告",
-      "buyer": "唐河县中等职业学校",
+      "id": "7dc652182f59fa18",
+      "title": "江西省安澜工程咨询有限公司关于江西飞行学院物流工程一体化智能创新实验室采购项目(项目编号:JXAL2026-ZC343)公开招标中标结果公示",
+      "buyer": "江西飞行学院",
       "budget": null,
       "winner": "",
       "publish_date": "2026-11-10",
       "deadline": "",
-      "source": "河南省政府采购网",
-      "source_id": "henan",
-      "url": "https://zfcg.henan.gov.cn/henan/content?infoId=2042060&channelCode=H740601",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/360000/0201/20261110/d809c887d530720ee29cdcca56ae2565.html",
+      "region": "national",
+      "city": "江西省",
+      "province": "江西",
+      "type_hint": "结果中标",
+      "keywords": [
+        "创新实验室"
+      ]
+    },
+    {
+      "id": "d1391522a2a0a631",
+      "title": "山东省济南甸柳第一中学物理、化学、生物实验室仪器设备项目(二次)公开招标招标公告",
+      "buyer": "山东省济南甸柳第一中学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-10",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/370000/0201/20261110/0037c5d9c5beccc845b0a8dd00fae871b4ba.html",
+      "region": "national",
+      "city": "山东省",
+      "province": "山东",
+      "type_hint": "招标公告",
+      "keywords": [
+        "生物实验室"
+      ]
+    },
+    {
+      "id": "5113e77f7a699792",
+      "title": "天津市静海区教育保障中心 2026年静海区学校采购智慧黑板 (项目编号:KDCZ-2026-H117)公开招标公告",
+      "buyer": "年静海区学校",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-10",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/120000/0201/20261110/0012a0b494ac379546689a756424c328eef1.html",
+      "region": "national",
+      "city": "天津市",
+      "province": "天津",
+      "type_hint": "招标公告",
+      "keywords": [
+        "智慧黑板"
+      ]
+    },
+    {
+      "id": "a256956f894feddc",
+      "title": "唐河县中等职业学校物理、化学、生物实验室仪器设备采购项目-竞争性磋商公告",
+      "buyer": "唐河县中等职业学校",
+      "budget": 804576.0,
+      "winner": "",
+      "publish_date": "2026-11-10",
+      "deadline": "2026-11-23",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "http://www.thggzy.cn/jump.html?locationurl=http://www.thggzy.cn&infoid=1b8af8a4-2468-4ff1-be75-90595c3ecae6",
       "region": "henan",
       "city": "南阳",
       "province": "河南",
@@ -91,7 +168,26 @@
       "keywords": [
         "生物实验室"
       ],
-      "summary": "河南省政府采购网 河南省政府采购网 您好，欢迎访问河南省政府采购网！ 服务热线：0371-65808207、0371-65808480 进入适老模式 无障碍阅读 首页 工作动态 通知公告 采购信息 购买服务 开标信息 监督管理 政策法规 政策解读 操作指南 文件下载 公众咨询 唐河县中等职业学校物理、化学、生物实验室仪器设备采购项目-竞争性磋商公告 发布机构"
+      "summary": "全国公共资源交易平台 唐河县中等职业学校物理、化学、生物实验室仪器设备采购项目-竞争性磋商公告 发布时间：2026-11-10 10:36 信息来源： 河南 原文链接地址 项目概况 唐河县中等职业学校物理、化学、生物实验室仪器设备采购项目 招标项目的潜在投标人应在 全国公共资源交易平台(河南省·南阳唐河分平台)（http://ggzyjy.tanghe.go"
+    },
+    {
+      "id": "110a984532d12b87",
+      "title": "哈尔滨金融学院人才区域培养实验室精密空调及智慧教室空调采购项目(二次)中标（成交）结果公告",
+      "buyer": "哈尔滨金融学院",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-10",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/230000/0201/20261110/f5cad206bee792f8a1456e34cb26e8a1.html",
+      "region": "national",
+      "city": "黑龙江省",
+      "province": "黑龙江",
+      "type_hint": "结果中标",
+      "keywords": [
+        "智慧教室"
+      ]
     },
     {
       "id": "de87d8266572f192",
