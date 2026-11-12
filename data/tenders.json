@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-12 12:04",
+  "updated_at": "2026-11-12 22:01",
   "timezone": "Asia/Shanghai",
   "runner": "github-actions",
   "sources": [
@@ -8,24 +8,24 @@
       "name": "广东省公共资源交易平台",
       "status": "ok",
       "listed": 840,
-      "kept": 19,
-      "note": "列表 840 条，标题命中 19 条，补详情 19 条"
+      "kept": 21,
+      "note": "列表 840 条，标题命中 21 条，补详情 21 条"
     },
     {
       "id": "henan",
       "name": "河南省政府采购网",
-      "status": "partial",
-      "listed": 424,
-      "kept": 1,
-      "note": "列表 424 条，标题命中 1 条，补详情 1 条；这些栏目超时已跳过：采购意向 HTTP 200"
+      "status": "fail",
+      "listed": 0,
+      "kept": 0,
+      "note": "栏目超时：采购意向、招标公告、更正、结果中标"
     },
     {
       "id": "ggzy",
       "name": "全国公共资源交易平台",
       "status": "ok",
       "listed": 563,
-      "kept": 472,
-      "note": "近一月检索 563 条，标题命中 472 条，补详情 50 条"
+      "kept": 471,
+      "note": "近一月检索 563 条，标题命中 471 条，补详情 50 条"
     },
     {
       "id": "ccgp",
@@ -52,8 +52,28 @@
       "note": "HTTP 403，WAF 拒绝"
     }
   ],
-  "count": 1033,
+  "count": 1037,
   "items": [
+    {
+      "id": "a57a5718c497f0ef",
+      "title": "香港城市大学（东莞）2026年教学研讨室与智慧教室多媒体系统设备采购项目",
+      "buyer": "香港城市大学（东莞）",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-12",
+      "deadline": "",
+      "source": "广东省公共资源交易平台",
+      "source_id": "gd",
+      "url": "https://ygp.gdzwfw.gov.cn/#/44/new/jygg/v3/D?noticeId=8a7e9dd1a1c4ade701a1cde06c736e15&projectCode=441901-2026-08731&bizCode=3812&siteCode=441900&publishDate=20261112140515&source=%E5%B9%BF%E4%B8%9C%E6%94%BF%E5%BA%9C%E9%87%87%E8%B4%AD%E6%99%BA%E6%85%A7%E4%BA%91%E5%B9%B3%E5%8F%B0&titleDetails=%E6%94%BF%E5%BA%9C%E9%87%87%E8%B4%AD&classify=",
+      "region": "guangdong",
+      "city": "东莞市",
+      "province": "广东",
+      "type_hint": "招标公告",
+      "keywords": [
+        "智慧教室"
+      ],
+      "summary": "采购计划编号：441901-2026-08731 一、采购人 香港城市大学（东莞） 二、采购计划编号 441901-2026-08731 三、采购计划名称 香港城市大学（东莞）2026年教学研讨室与智慧教室多媒体系统设备采购项目 四、采购品目名称 液晶显示器 五、采购预算金额（元） ¥1,665,654.00 六、需求时间 七、采购方式 公开招标 八、备案日"
+    },
     {
       "id": "f182247bb083aa87",
       "title": "都昌县思源实验学校86寸智慧黑板班班通设备采购项目",
@@ -111,6 +131,83 @@
         "智慧黑板"
       ],
       "summary": "河南省政府采购网 河南省政府采购网 您好，欢迎访问河南省政府采购网！ 服务热线：0371-65808207、0371-65808480 进入适老模式 无障碍阅读 首页 工作动态 通知公告 采购信息 购买服务 开标信息 监督管理 政策法规 政策解读 操作指南 文件下载 公众咨询 正阳县教育局关于正阳县中小学校购置智慧黑板等教学设备项目B包-中标公告 发布机构："
+    },
+    {
+      "id": "ee705f02c3ca4da2",
+      "title": "徽县一中教育设施设备改造提升项目徽县一中教育设施设备改造提升项目第二包（智慧黑板）",
+      "buyer": "徽县一中",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-12",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/620000/0203/20261112/00620b4641cb5db14ac2bb08ed077b0f24e9.html",
+      "region": "national",
+      "city": "甘肃省",
+      "province": "甘肃",
+      "type_hint": "结果中标",
+      "keywords": [
+        "智慧黑板"
+      ]
+    },
+    {
+      "id": "29f0a0cb163b400f",
+      "title": "和龙市第七中学校物理实验功能室仪器器材设施设备和化学生物实验室配套设施购置项目中标(成交)结果公告",
+      "buyer": "和龙市第七中学校",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-12",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/220000/0202/20261112/00228e090179af9948a9ae561941c54dd1b8.html",
+      "region": "national",
+      "city": "吉林省",
+      "province": "吉林",
+      "type_hint": "结果中标",
+      "keywords": [
+        "生物实验室"
+      ]
+    },
+    {
+      "id": "94fc5580aedacce9",
+      "title": "井研县电教教仪管理站井研县初高中智慧黑板更新改造项目竞争性谈判公告",
+      "buyer": "井研县电教教仪管理站井研县初高中",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-12",
+      "deadline": "",
+      "source": "全国公共资源交易平台",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/510000/0201/20261112/0051776d109bf6104a539f91be78dcd5434a.html",
+      "region": "national",
+      "city": "四川省",
+      "province": "四川",
+      "type_hint": "招标公告",
+      "keywords": [
+        "智慧黑板"
+      ]
+    },
+    {
+      "id": "66702c3f13b4f9b4",
+      "title": "【初始合同】深圳益新中学生物实验室（含仪器）采购项目合同公示",
+      "buyer": "深圳益新中学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-12",
+      "deadline": "",
+      "source": "广东省公共资源交易平台",
+      "source_id": "gd",
+      "url": "https://ygp.gdzwfw.gov.cn/#/44/new/jygg/v3/D?noticeId=7ad1402e-97f9-4f0f-9874-9eb621d7860c&projectCode=SZCG2026001231&bizCode=3881&siteCode=440300&publishDate=20261112180808&source=%E6%B7%B1%E5%9C%B3%E4%BA%A4%E6%98%93%E9%9B%86%E5%9B%A2%E7%BB%9F%E4%B8%80%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E5%B9%B3%E5%8F%B0&titleDetails=%E6%94%BF%E5%BA%9C%E9%87%87%E8%B4%AD&classify=",
+      "region": "guangdong",
+      "city": "深圳市",
+      "province": "广东",
+      "type_hint": "结果中标",
+      "keywords": [
+        "生物实验室"
+      ],
+      "summary": "合同编号：CSHT-SZCG2026001231-A-2026-1 合同名称：深圳益新中学生物实验室（含仪器）采购合同 合同签署时间：2026-11-05 00:00:00 采购人名称：深圳益新中学 合同公告 一、合同编号：CSHT-SZCG2026001231-A-2026-1 二、合同名称：深圳益新中学生物实验室（含仪器）采购合同 三、项目编号（ 或招标"
     },
     {
       "id": "a0aacbcd30d41c3f",
@@ -458,26 +555,6 @@
       "keywords": [
         "传感器"
       ]
-    },
-    {
-      "id": "f50ac9b921f1608f",
-      "title": "香港城市大学（东莞）2026年教学研讨室与智慧教室多媒体系统设备采购项目",
-      "buyer": "香港城市大学",
-      "budget": null,
-      "winner": "",
-      "publish_date": "2026-11-10",
-      "deadline": "",
-      "source": "广东省公共资源交易平台",
-      "source_id": "gd",
-      "url": "https://ygp.gdzwfw.gov.cn/#/44/new/jygg/v3/D?noticeId=8a7edc65a0750b8801a1c42a95350ee&projectCode=441901-2026-07868&bizCode=3831&siteCode=441900&publishDate=20261110160021&source=%E5%B9%BF%E4%B8%9C%E6%94%BF%E5%BA%9C%E9%87%87%E8%B4%AD%E6%99%BA%E6%85%A7%E4%BA%91%E5%B9%B3%E5%8F%B0&titleDetails=%E6%94%BF%E5%BA%9C%E9%87%87%E8%B4%AD&classify=",
-      "region": "guangdong",
-      "city": "东莞市",
-      "province": "广东",
-      "type_hint": "招标公告",
-      "keywords": [
-        "智慧教室"
-      ],
-      "summary": "采购项目名称：香港城市大学（东莞）2026年教学研讨室与智慧教室多媒体系统设备采购项目 采购项目编号：441901-2026-07868 公告性质："
     },
     {
       "id": "d48bd6bfb4a5a29f",
