@@ -46,6 +46,7 @@ button { cursor: pointer; }
 .brand { display: flex; gap: 10px; align-items: center; min-width: 220px; }
 .mark { width: 14px; height: 28px; background: #f3c15a; border-radius: 2px; }
 .top h1 { margin: 0; font-size: 20px; font-weight: 700; letter-spacing: .02em; }
+.top .subhead { margin: 1px 0 0; font-size: 13px; font-weight: 600; opacity: .95; }
 .top p { margin: 2px 0 0; font-size: 12px; opacity: .85; }
 .sources { display: flex; flex-wrap: wrap; gap: 6px; margin-left: auto; justify-content: flex-end; }
 .pill {
@@ -122,6 +123,7 @@ button { cursor: pointer; }
   font-size: 12.5px;
 }
 .hints button.on { background: var(--navy); color: #fff; border-color: var(--navy); }
+.find-note { margin: 8px 0 0; font-size: 12px; color: var(--muted); }
 mark { background: #ffe08a; color: inherit; padding: 0 1px; border-radius: 2px; }
 
 .layout { display: flex; flex: 1; min-height: 0; }
@@ -147,6 +149,7 @@ mark { background: #ffe08a; color: inherit; padding: 0 1px; border-radius: 2px; 
 .block h2 { margin: 0 0 6px; font-size: 12px; color: var(--muted); font-weight: 600; letter-spacing: .04em; }
 .hint { margin: 8px 0 4px; font-size: 12px; color: var(--muted); }
 .checks { display: flex; flex-wrap: wrap; gap: 6px; }
+.provinces { max-height: 168px; overflow: auto; padding-right: 2px; }
 .cities { max-height: 132px; overflow: auto; padding-right: 2px; }
 .checks label {
   display: inline-flex;

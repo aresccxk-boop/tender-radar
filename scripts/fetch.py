@@ -35,7 +35,13 @@ from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[1]
 RULES_PATH = ROOT / "config" / "rules.json"
+PROVINCES_PATH = ROOT / "config" / "provinces.json"
 DATA_PATH = ROOT / "data" / "tenders.json"
+PROGRESS_PATH = ROOT / "data" / "progress.json"
+GGZY_API = "https://www.ggzy.gov.cn/information/pubTradingInfo/getTradList"
+# 接口单次大约 1000 条。到这个量就拆日期，避免后半段被截掉。
+SPLIT_AT = 900
+MAX_SPLIT_DEPTH = 5
 CST = timezone(timedelta(hours=8))
 UA = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -722,106 +728,312 @@ def ggzy_body_url(url: str) -> str:
     return url.replace("/information/deal/html/a/", "/information/deal/html/b/")
 
 
-def fetch_ggzy(client: Client, rules: dict, pages: int, time_range: str, detail_budget: list[int]) -> tuple[list[dict], dict]:
-    name = "全国公共资源交易平台"
-    api = "https://www.ggzy.gov.cn/information/pubTradingInfo/getTradList"
-    found: dict[str, dict] = {}
-    listed = 0
-    scopes = [""] + [str(code) for code in (rules.get("重点省份") or [])]
+def load_provinces() -> list[dict]:
+    with PROVINCES_PATH.open(encoding="utf-8") as f:
+        rows = json.load(f)
+    if len(rows) < 32:
+        raise RuntimeError(f"省份表只有 {len(rows)} 个，需要 32 个省级平台")
+    return rows
+
+
+# 同一轮没跑完的省份下次接着翻。超过这个小时数就重抓，避免进度文件把全国更新永久跳过。
+FRESH_HOURS = 18
+
+
+def load_progress() -> dict[str, str]:
+    """任务键 -> 完成时间（北京时间）。旧版只存完成列表时，用文件里的 updated_at 当作完成时间。"""
+    if not PROGRESS_PATH.exists():
+        return {}
     try:
-        for kw in rules["搜索关键词"]:
-            for scope in scopes:
-                page_limit = pages if not scope else 1
-                for page in range(1, page_limit + 1):
-                    form = {
-                        "DEAL_CLASSIFY": "02",
-                        "DEAL_TIME": time_range or "04",
-                        "FINDTXT": kw,
-                        "PAGENUMBER": str(page),
-                    }
-                    if scope:
-                        form["DEAL_PROVINCE"] = scope
-                    r = client.send(
-                        "POST",
-                        api,
-                        data=form,
-                        headers={
-                            "Content-Type": "application/x-www-form-urlencoded",
-                            "Referer": "https://www.ggzy.gov.cn/deal/dealList.html",
-                            "X-Pass-Token": "",
-                        },
-                        tries=2,
-                    )
-                    try:
-                        payload = r.json()
-                    except Exception as exc:
-                        raise RuntimeError(f"不是 JSON：HTTP {r.status_code}") from exc
-                    code = payload.get("code")
-                    if code in (829, 800, 801, 804):
-                        raise RuntimeError(payload.get("message") or f"接口返回 {code}（验证码或限流）")
-                    if code != 200:
-                        raise RuntimeError(payload.get("message") or f"接口返回 {code}")
-                    records = ((payload.get("data") or {}).get("records")) or []
-                    listed += len(records)
-                    if not records:
-                        break
-                    for entry in records:
-                        title = re.sub(r"\s+", " ", entry.get("title") or "").strip()
-                        hits = keyword_hits(title, rules)
-                        if not hits:
-                            continue
-                        rel = entry.get("url") or ""
-                        full = rel if rel.startswith("http") else urljoin("https://www.ggzy.gov.cn", rel)
-                        province = entry.get("provinceText") or ""
-                        info = str(entry.get("informationType") or "")
-                        hint = GGZY_TYPE.get(info) or entry.get("informationTypeText") or "招标公告"
-                        region, city = "national", province
-                        if "河南" in province:
-                            region, city = "henan", henan_city(title, rules)
-                        elif "广东" in province:
-                            if "广州" in title:
-                                region, city = "guangzhou", "广州"
-                            else:
-                                region, city = "guangdong", ""
-                        rec = make_item(
-                            title=title,
-                            publish_date=ymd_from_compact(entry.get("publishTime") or ""),
-                            deadline=ymd_from_compact(entry.get("deadline") or ""),
-                            source=name,
-                            source_id="ggzy",
-                            url=full,
-                            region=region,
-                            city=city,
-                            province=province.replace("省", "").replace("市", ""),
-                            type_hint=hint,
-                            keywords=hits,
-                        )
-                        rec["_platform"] = entry.get("transactionSourcesPlatformText") or ""
-                        prev = found.get(rec["id"])
-                        if prev:
-                            prev["keywords"] = sorted(set(prev["keywords"] + hits))
-                        else:
-                            found[rec["id"]] = rec
-    except Exception as exc:
-        return list(found.values()), {
-            "id": "ggzy",
-            "name": name,
-            "status": "partial" if found else "fail",
-            "listed": listed,
-            "kept": len(found),
-            "note": str(exc)[:180],
+        data = json.loads(PROGRESS_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    stamp = str(data.get("updated_at") or "")
+    done = data.get("done") or {}
+    if isinstance(done, list):
+        return {str(key): stamp for key in done if stamp}
+    if isinstance(done, dict):
+        return {str(key): str(value) for key, value in done.items()}
+    return {}
+
+
+def save_progress(done: dict[str, str], note: str = "") -> None:
+    PROGRESS_PATH.parent.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "updated_at": now_cst().strftime("%Y-%m-%d %H:%M"),
+        "fresh_hours": FRESH_HOURS,
+        "done": {key: done[key] for key in sorted(done)},
+        "note": note,
+    }
+    tmp = PROGRESS_PATH.with_suffix(".json.tmp")
+    tmp.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    tmp.replace(PROGRESS_PATH)
+
+
+def progress_is_fresh(stamp: str, now: datetime | None = None) -> bool:
+    try:
+        when = datetime.strptime(stamp, "%Y-%m-%d %H:%M").replace(tzinfo=CST)
+    except Exception:
+        return False
+    current = now or now_cst()
+    return current - when < timedelta(hours=FRESH_HOURS)
+
+
+def ggzy_post(client: Client, form: dict) -> dict:
+    last = "未知错误"
+    for attempt in range(6):
+        r = client.send(
+            "POST",
+            GGZY_API,
+            data=form,
+            headers={
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Referer": "https://www.ggzy.gov.cn/deal/dealList.html",
+                "Origin": "https://www.ggzy.gov.cn",
+                "X-Pass-Token": "",
+            },
+            tries=2,
+            timeout=(8, 25),
+        )
+        try:
+            payload = r.json()
+        except Exception as exc:
+            last = f"不是 JSON：HTTP {r.status_code}"
+            time.sleep(min(30, 3 * (attempt + 1)))
+            continue
+        code = payload.get("code")
+        message = str(payload.get("message") or "")
+        if code in (829, 800, 801, 804, 429) or "频繁" in message or "验证码" in message:
+            last = message or f"接口返回 {code}"
+            wait = min(600, 90 * (attempt + 1))
+            print(f"  限流，{wait} 秒后再试：{last}", flush=True)
+            time.sleep(wait)
+            continue
+        if code != 200:
+            raise RuntimeError(message or f"接口返回 {code}")
+        return payload
+    raise RuntimeError(last)
+
+
+def record_matches_province(entry: dict, code: str, name: str) -> bool:
+    rec_code = str(entry.get("province") or "")
+    if rec_code:
+        return rec_code.startswith(code[:2])
+    text = entry.get("provinceText") or ""
+    return (not text) or (name in text) or (name[:2] in text)
+
+
+def ggzy_item(entry: dict, province: dict, rules: dict, hits: list[str]) -> dict:
+    rel = entry.get("url") or ""
+    full = rel if str(rel).startswith("http") else urljoin("https://www.ggzy.gov.cn", rel)
+    title = re.sub(r"\s+", " ", entry.get("title") or "").strip()
+    info = str(entry.get("informationType") or "")
+    hint = GGZY_TYPE.get(info) or entry.get("informationTypeText") or "招标公告"
+    name = province["name"]
+    city = (entry.get("cityText") or "").replace("市", "")
+    if name == "河南":
+        region = "henan"
+        city = city or henan_city(title, rules)
+    elif name == "广东":
+        if "广州" in title or "广州" in (entry.get("cityText") or ""):
+            region, city = "guangzhou", "广州"
+        else:
+            region = "guangdong"
+    else:
+        region = "national"
+    return make_item(
+        title=title,
+        publish_date=ymd_from_compact(str(entry.get("publishTime") or "")),
+        deadline=ymd_from_compact(str(entry.get("deadline") or "")),
+        source=f"{name}公共资源交易中心",
+        source_id="ggzy",
+        url=full,
+        region=region,
+        city=city,
+        province=name,
+        type_hint=hint,
+        keywords=hits,
+    )
+
+
+def fetch_span(client: Client, rules: dict, province: dict, keyword: str, classify: str, start: str, end: str, depth: int) -> tuple[list[dict], dict]:
+    code = province["code"]
+    name = province["name"]
+
+    def form(page: int) -> dict:
+        return {
+            "TIMEBEGIN": start,
+            "TIMEEND": end,
+            "TIMEBEGIN_SHOW": start,
+            "TIMEEND_SHOW": end,
+            "DEAL_TIME": "06",
+            "DEAL_CLASSIFY": classify,
+            "DEAL_PROVINCE": code,
+            "FINDTXT": keyword,
+            "PAGENUMBER": str(page),
+            "isShowAll": "1",
         }
 
+    first = ggzy_post(client, form(1))
+    data = first.get("data") or {}
+    total = int(data.get("total") or 0)
+    pages = int(data.get("pages") or 0)
+    if total >= SPLIT_AT and depth < MAX_SPLIT_DEPTH:
+        start_d = datetime.strptime(start, "%Y-%m-%d").date()
+        end_d = datetime.strptime(end, "%Y-%m-%d").date()
+        if (end_d - start_d).days >= 2:
+            mid = start_d + timedelta(days=(end_d - start_d).days // 2)
+            right = mid + timedelta(days=1)
+            left_items, left_meta = fetch_span(client, rules, province, keyword, classify, start, mid.isoformat(), depth + 1)
+            right_items, right_meta = fetch_span(client, rules, province, keyword, classify, right.isoformat(), end, depth + 1)
+            return left_items + right_items, {
+                "fetched": left_meta["fetched"] + right_meta["fetched"],
+                "kept": left_meta["kept"] + right_meta["kept"],
+                "complete": left_meta["complete"] and right_meta["complete"],
+            }
+
+    raw_pages = [data.get("records") or []]
+    fetched = len(raw_pages[0])
+    for page in range(2, pages + 1):
+        payload = ggzy_post(client, form(page))
+        rows = ((payload.get("data") or {}).get("records")) or []
+        if not rows:
+            break
+        raw_pages.append(rows)
+        fetched += len(rows)
+
+    items: list[dict] = []
+    for rows in raw_pages:
+        for entry in rows:
+            if not record_matches_province(entry, code, name):
+                continue
+            hits = keyword_hits(entry.get("title") or "", rules)
+            if not hits:
+                continue
+            items.append(ggzy_item(entry, province, rules, hits))
+    page_cap = pages * 20 if pages else 0
+    complete = total == 0 or fetched >= total or (page_cap and fetched >= min(total, page_cap))
+    return items, {"fetched": fetched, "kept": len(items), "complete": complete, "api_total": total, "pages": pages}
+
+
+def fetch_ggzy(
+    client: Client,
+    rules: dict,
+    pages: int,
+    time_range: str,
+    detail_budget: list[int],
+    keep_days: int = 120,
+    carry: list[list[dict]] | None = None,
+) -> tuple[list[dict], dict]:
+    """32 个省级平台逐个翻完近 keep_days 天。时间用尽就停，已入库的公告留给下次合并，不会整份换成前两页。"""
+    del pages, time_range
+    name = "全国公共资源交易平台"
+    provinces = load_provinces()
+    priority = {"410000": 0, "440000": 1}
+    provinces = sorted(provinces, key=lambda p: (priority.get(p["code"], 9), p["code"]))
+    keywords = [kw for kw in (rules.get("搜索关键词") or []) if kw]
+    classifies = ["02", "01"]
+    end = now_cst().date()
+    start = (end - timedelta(days=keep_days)).isoformat()
+    end_s = end.isoformat()
+    progress = load_progress()
+    budget = int(os.environ.get("FETCH_BUDGET_SECONDS") or ("2100" if os.environ.get("FETCH_RUNNER") == "github-actions" else "0"))
+    started = time.monotonic()
+    found: dict[str, dict] = {}
+    listed = 0
+    done_now = 0
+    failed: list[str] = []
+    stop_note = ""
+    jobs = [(prov, kw, classify) for prov in provinces for kw in keywords for classify in classifies]
+    stamp_now = now_cst().strftime("%Y-%m-%d %H:%M")
+
+    def job_key(job: tuple) -> str:
+        return f"{job[0]['code']}|{job[1]}|{job[2]}"
+
+    def fresh_count() -> int:
+        return sum(1 for job in jobs if progress_is_fresh(progress.get(job_key(job), "")))
+
+    pending = [job for job in jobs if not progress_is_fresh(progress.get(job_key(job), ""))]
+    print(
+        f"  全国按省翻页：{FRESH_HOURS} 小时内已完成 {len(jobs) - len(pending)}，待抓 {len(pending)}，窗口 {start} 至 {end_s}",
+        flush=True,
+    )
+
+    def absorb(rows: list[dict]) -> None:
+        for rec in rows:
+            prev = found.get(rec["id"])
+            if prev:
+                prev["keywords"] = sorted(set(prev["keywords"] + rec.get("keywords") or []))
+            else:
+                found[rec["id"]] = rec
+
+    def flush(note: str) -> None:
+        save_progress(progress, note)
+        if carry is None:
+            return
+        previous_items, previous_sources = load_previous()
+        # 本次已经写过的文件里会包含上一轮结果。用开跑时的快照，避免把同一批重复叠进去后又被截断。
+        snapshot = flush.snapshot
+        merged = merge_items(carry + [list(found.values()), snapshot], keep_days, rules)
+        sources = list(previous_sources)
+        ggzy_status = {
+            "id": "ggzy",
+            "name": name,
+            "status": "partial",
+            "listed": listed,
+            "kept": len(found),
+            "note": note[:180],
+        }
+        replaced = False
+        for i, src in enumerate(sources):
+            if src.get("id") == "ggzy":
+                sources[i] = ggzy_status
+                replaced = True
+                break
+        if not replaced:
+            sources.append(ggzy_status)
+        write_output(merged, sources)
+
+    flush.snapshot = load_previous()[0]
+
+    for index, (prov, kw, classify) in enumerate(pending, start=1):
+        if budget and (time.monotonic() - started) > budget:
+            stop_note = f"本轮时间用尽，已完成 {fresh_count()}/{len(jobs)}，下次从断点继续"
+            print(f"  {stop_note}", flush=True)
+            break
+        key = job_key((prov, kw, classify))
+        label = {"02": "政府采购", "01": "工程建设"}.get(classify, classify)
+        try:
+            rows, meta = fetch_span(client, rules, prov, kw, classify, start, end_s, 0)
+        except Exception as exc:
+            failed.append(f"{prov['name']}/{kw}/{label}")
+            print(f"  失败 {prov['name']} {kw} {label}：{exc}", flush=True)
+            message = str(exc)
+            if "频繁" in message or "限流" in message or "验证码" in message:
+                stop_note = f"接口限流，已完成 {fresh_count()}/{len(jobs)}，已抓到的会保留，下次继续"
+                break
+            continue
+        listed += meta.get("fetched") or 0
+        absorb(rows)
+        if meta.get("complete"):
+            progress[key] = stamp_now
+            done_now += 1
+        else:
+            progress.pop(key, None)
+            failed.append(f"{prov['name']}/{kw}/{label}未翻完")
+        if index % 10 == 0 or index == len(pending):
+            note = f"进行中 {fresh_count()}/{len(jobs)}，本轮新收录 {len(found)} 条"
+            flush(note)
+            print(f"  {index}/{len(pending)} {prov['name']} {kw} {label} 收录 {meta.get('kept')} 累计 {len(found)}", flush=True)
+
     detailed = 0
-    ordered = focus_first(list(found.values()))
-    for rec in ordered:
+    for rec in focus_first(list(found.values())):
         if detail_budget[0] <= 0:
             break
         if "/information/deal/html/" not in rec["url"]:
             continue
-        body_url = ggzy_body_url(rec["url"])
         try:
-            r = client.send("GET", body_url, headers={"Referer": "https://www.ggzy.gov.cn/"}, tries=1, timeout=(8, 16))
+            r = client.send("GET", ggzy_body_url(rec["url"]), headers={"Referer": "https://www.ggzy.gov.cn/"}, tries=1, timeout=(8, 16))
             r.encoding = "utf-8"
         except Exception:
             continue
@@ -829,10 +1041,9 @@ def fetch_ggzy(client: Client, rules: dict, pages: int, time_range: str, detail_
         detailed += 1
         soup = BeautifulSoup(r.text, "html.parser")
         text = soup.get_text(" ", strip=True)[:20000]
-        link = soup.select_one("a[href]")
-        for a in soup.select("a[href]"):
-            label = a.get_text(strip=True)
-            href = a.get("href") or ""
+        for anchor in soup.select("a[href]"):
+            label = anchor.get_text(strip=True)
+            href = anchor.get("href") or ""
             if "原文" in label and href.startswith("http"):
                 rec["url"] = href
                 rec["id"] = item_id(href)
@@ -843,12 +1054,26 @@ def fetch_ggzy(client: Client, rules: dict, pages: int, time_range: str, detail_
         rec["winner"] = rec["winner"] or parse_party(text, "中标供应商|成交供应商|中标人|成交人")
         if not rec.get("summary"):
             rec["summary"] = clip_summary(text)
-        if rec.get("_platform") and not rec["buyer"]:
-            pass
-    for rec in found.values():
-        rec.pop("_platform", None)
-    note = f"近一月检索 {listed} 条，标题命中 {len(found)} 条，补详情 {detailed} 条"
-    return list(found.values()), {"id": "ggzy", "name": name, "status": "ok", "listed": listed, "kept": len(found), "note": note}
+
+    fresh_n = fresh_count()
+    if fresh_n >= len(jobs) and not failed:
+        status = "ok"
+    elif found or fresh_n:
+        status = "partial"
+    else:
+        status = "fail"
+    if not pending and not stop_note and not failed:
+        note = f"{FRESH_HOURS} 小时内 32 省已翻完（{fresh_n}/{len(jobs)}），本轮不重复请求。已收录的公告会保留。"
+    else:
+        note = stop_note or f"32 省近 {keep_days} 天按省翻页。列表 {listed} 条，本轮新收录 {len(found)} 条，补详情 {detailed} 条，进度 {fresh_n}/{len(jobs)}"
+    if failed and not stop_note:
+        note += "；未完成 " + "、".join(failed[:6])
+        if len(failed) > 6:
+            note += f" 等 {len(failed)} 项"
+    note += "。未重新抓到的旧公告会保留，不会退回只翻前两页。"
+    flush(note)
+    return list(found.values()), {"id": "ggzy", "name": name, "status": status, "listed": listed, "kept": len(found), "note": note[:180]}
+
 
 
 def probe(client: Client, sid: str, name: str, url: str, ok_if) -> dict:
@@ -1060,6 +1285,9 @@ def self_check() -> None:
     b = make_item(title="同一公告", url="https://b.example/2", budget=1000, source_id="gd", type_hint="招标公告", buyer="某学校")
     merged = merge_items([[a], [b]], 120, rules)
     assert len(merged) == 1 and merged[0]["budget"] == 1000 and merged[0]["source_id"] == "gd"
+    assert progress_is_fresh(now_cst().strftime("%Y-%m-%d %H:%M"))
+    assert not progress_is_fresh("2000-01-01 00:00")
+    assert len(load_provinces()) >= 32
     print("self-check ok")
 
 
@@ -1114,7 +1342,7 @@ def main() -> int:
 
     run("gd", lambda: fetch_gd(client, rules, pages, [max(24, detail_cap // 2)]))
     run("henan", lambda: fetch_henan(client, rules, henan_pages, [max(8, detail_cap // 5)]))
-    run("ggzy", lambda: fetch_ggzy(client, rules, pages, time_range, [max(12, detail_cap // 3)]))
+    run("ggzy", lambda: fetch_ggzy(client, rules, pages, time_range, [max(12, detail_cap // 3)], keep_days, batches))
     run("ccgp", lambda: ([], probe_ccgp(client)))
     run("gdgpo", lambda: ([], probe_gdgpo(client)))
     run("gzggzy", lambda: ([], probe_gz(client)))

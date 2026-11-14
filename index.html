@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>共时招标雷达</title>
+<title>信息查看</title>
 <link rel="stylesheet" href="assets/app.css">
 </head>
 <body>
@@ -11,7 +11,8 @@
   <div class="brand">
     <span class="mark" aria-hidden="true"></span>
     <div>
-      <h1>共时招标雷达</h1>
+      <h1>信息查看</h1>
+      <p class="subhead">共时招标雷达</p>
       <p id="updated">正在读取数据…</p>
     </div>
   </div>
@@ -31,6 +32,7 @@
     </div>
   </div>
   <div class="hints" id="hints"></div>
+  <p class="find-note">只查已经收录的公告。这个页面不能发起抓取。</p>
 </div>
 
 <div class="layout">
@@ -50,10 +52,12 @@
       <div class="checks" id="f-line"></div>
     </section>
     <section class="block">
-      <h2>地区</h2>
-      <div class="checks" id="f-region"></div>
-      <p class="hint">河南地市</p>
-      <div class="checks cities" id="f-city"></div>
+      <h2>省份</h2>
+      <div class="checks provinces" id="f-region"></div>
+      <div id="city-block">
+        <p class="hint">河南地市</p>
+        <div class="checks cities" id="f-city"></div>
+      </div>
     </section>
     <section class="block">
       <h2>学段</h2>

@@ -10,7 +10,7 @@ fi
 .venv/bin/pip install -q -r requirements.txt
 FETCH_RUNNER=local-cn .venv/bin/python scripts/fetch.py
 
-git add data/tenders.json
+git add data/tenders.json data/progress.json
 if git diff --cached --quiet; then
   echo "数据没有变化，不推送"
 else

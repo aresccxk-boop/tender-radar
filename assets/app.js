@@ -1,12 +1,8 @@
 (function () {
   "use strict";
 
-  var REGIONS = [
-    { id: "henan", name: "河南" },
-    { id: "guangzhou", name: "广州" },
-    { id: "guangdong", name: "广东其他" },
-    { id: "national", name: "全国" }
-  ];
+  var PROVINCES = ["北京","天津","河北","山西","内蒙古","辽宁","吉林","黑龙江","上海","江苏","浙江","安徽","福建","江西","山东","河南","湖北","湖南","广东","广西","海南","重庆","四川","贵州","云南","西藏","陕西","甘肃","青海","宁夏","新疆","兵团"];
+  var REGIONS = PROVINCES.map(function (name) { return { id: name, name: name }; });
   var BUDGETS = [
     { id: "lt10", name: "10万以下" },
     { id: "10-50", name: "10–50万" },
@@ -30,9 +26,9 @@
     { id: "30d", name: "近30天" }
   ];
   var VIEWS = [
-    { id: "week", name: "本周截止", patch: { due: "7d", ntype: ["intent", "tender", "correction"] } },
-    { id: "henan-new", name: "河南新公告", patch: { region: ["henan"], pub: "7d", ntype: ["intent", "tender"] } },
-    { id: "gz-ai", name: "广州 AI 实验室", patch: { region: ["guangzhou"], line: ["ai"] } },
+    { id: "due7", name: "7天内截止", patch: { due: "7d", ntype: ["intent", "tender", "correction"] } },
+    { id: "henan-new", name: "河南新公告", patch: { region: ["河南"], pub: "7d", ntype: ["intent", "tender"] } },
+    { id: "gz-lab", name: "广州实验室", patch: { region: ["广东"], city: ["广州"], line: ["lab"] } },
     { id: "awards", name: "中标结果", patch: { ntype: ["award"] } }
   ];
   var HINTS = ["传感器", "数字化实验室", "人工智能实验室", "AI实训室", "理化生", "智慧黑板", "创客", "机器人", "数学实验室", "探索馆", "功能室"];
@@ -171,11 +167,24 @@
       .replace(/(省|市)$/g, "");
   }
 
+  function canonicalProvince(item) {
+    var raw = shortPlace(item.province || "");
+    if (item.region === "henan" || raw.indexOf("河南") >= 0) return "河南";
+    if (item.region === "guangzhou" || item.region === "guangdong" || raw.indexOf("广东") >= 0) return "广东";
+    if (raw.indexOf("内蒙古") >= 0) return "内蒙古";
+    if (raw.indexOf("广西") >= 0) return "广西";
+    if (raw.indexOf("西藏") >= 0) return "西藏";
+    if (raw.indexOf("宁夏") >= 0) return "宁夏";
+    if (raw.indexOf("新疆") >= 0 && raw.indexOf("兵团") < 0) return "新疆";
+    if (raw.indexOf("兵团") >= 0) return "兵团";
+    return raw;
+  }
+
   function regionLabel(item) {
-    var base = item.region === "guangdong" ? "广东" : nameOf(REGIONS, item.region);
-    if (item.city) return base + "·" + shortPlace(item.city);
-    if (item.region === "national" && item.province) return "全国·" + shortPlace(item.province);
-    return base;
+    var prov = canonicalProvince(item);
+    if (item.region === "guangzhou" || (prov === "广东" && (item.city || "").indexOf("广州") >= 0)) return "广东·广州";
+    if (item.city) return prov + "·" + shortPlace(item.city);
+    return prov || "—";
   }
 
   function queryGroups(q) {
@@ -287,17 +296,28 @@
   }
 
   function regionOk(item) {
-    var regions = state.region;
-    var cities = state.city;
-    if (!regions.length && !cities.length) return true;
-    if (item.region === "henan") {
-      var cityHit = !cities.length || cities.some(function (c) { return (item.city || "").indexOf(c) >= 0; });
-      if (cities.length && !regions.length) return cityHit;
-      if (regions.indexOf("henan") >= 0) return cityHit;
-      return false;
+    var regions = state.region.map(function (id) {
+      if (id === "henan") return "河南";
+      if (id === "guangdong" || id === "guangzhou" || id === "广州") return "广东";
+      if (id === "national") return "";
+      return id;
+    }).filter(Boolean);
+    var wantGz = state.region.indexOf("广州") >= 0 || state.region.indexOf("guangzhou") >= 0 || state.city.indexOf("广州") >= 0;
+    var henanCities = state.city.filter(function (c) { return c !== "广州"; });
+    var prov = canonicalProvince(item);
+    if (!regions.length && !henanCities.length && !wantGz) return true;
+    if (regions.length && regions.indexOf(prov) < 0) return false;
+    var henanActive = !regions.length || regions.indexOf("河南") >= 0;
+    if (henanCities.length && henanActive) {
+      if (prov !== "河南") return false;
+      if (!henanCities.some(function (c) { return (item.city || "").indexOf(c) >= 0; })) return false;
     }
-    if (!regions.length) return false;
-    return regions.indexOf(item.region) >= 0;
+    if (wantGz) {
+      if (prov !== "广东") return false;
+      var blob = (item.city || "") + (item.title || "");
+      if (item.region !== "guangzhou" && blob.indexOf("广州") < 0) return false;
+    }
+    return true;
   }
 
   function dueOk(item) {
@@ -440,6 +460,11 @@
     renderChecks($("f-line"), rules["产品线"] || [], state.line, true);
     renderChecks($("f-region"), REGIONS, state.region, true);
     renderChecks($("f-city"), (rules["河南地市"] || []).map(function (c) { return { id: c, name: c }; }), state.city, true);
+    var cityBlock = $("city-block");
+    if (cityBlock) {
+      var showCities = !state.region.length || state.region.indexOf("河南") >= 0 || state.region.indexOf("henan") >= 0;
+      cityBlock.hidden = !showCities;
+    }
     var stages = (rules["学段"] || []).slice();
     renderChecks($("f-stage"), stages, state.stage, true);
     renderChecks($("f-ntype"), rules["公告类型"] || [], state.ntype, true);
@@ -554,7 +579,7 @@
   }
 
   function summaryText(items) {
-    var lines = ["【共时招标雷达】" + items.length + " 条", ""];
+    var lines = ["【信息查看 · 共时招标雷达】" + items.length + " 条", ""];
     items.forEach(function (item, i) {
       lines.push((i + 1) + ". " + (item.title || ""));
       lines.push("采购单位：" + (item.buyer || "未公布"));
@@ -784,7 +809,7 @@
       var head = document.createElement("div");
       head.id = "print-head";
       head.className = "print-head";
-      head.innerHTML = "<h1>共时招标雷达</h1><p>" + esc(filterDescription()) + " · " + current.length + " 条 · 数据更新于 " + esc(meta.updated_at || "") + "</p><p>深圳共时科技 · 数字员工团队出品</p>";
+      head.innerHTML = "<h1>信息查看</h1><p>共时招标雷达 · " + esc(filterDescription()) + " · " + current.length + " 条 · 数据更新于 " + esc(meta.updated_at || "") + "</p><p>深圳共时科技 · 数字员工团队出品</p>";
       document.querySelector("main").prepend(head);
       var savedPage = state.page, savedPs = state.ps;
       state.page = 1;
