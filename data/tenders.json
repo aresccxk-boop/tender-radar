@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-18 13:15",
+  "updated_at": "2026-11-18 22:35",
   "timezone": "Asia/Shanghai",
   "runner": "github-actions",
   "sources": [
@@ -15,17 +15,17 @@
       "id": "henan",
       "name": "河南省政府采购网",
       "status": "fail",
-      "listed": 0,
+      "listed": 332,
       "kept": 0,
-      "note": "栏目超时：采购意向、招标公告、更正、结果中标"
+      "note": "栏目超时：更正、结果中标 HTTP 502"
     },
     {
       "id": "ggzy",
       "name": "全国公共资源交易平台",
       "status": "ok",
-      "listed": 5539,
-      "kept": 5176,
-      "note": "32 省近 120 天按省翻页。列表 5539 条，本轮新收录 5176 条，补详情 50 条，进度 1408/1408。未重新抓到的旧公告会保留，不会退回只翻前两页。"
+      "listed": 484,
+      "kept": 448,
+      "note": "32 省近 120 天按省翻页。列表 484 条，本轮新收录 448 条，补详情 50 条，进度 1408/1408。未重新抓到的旧公告会保留，不会退回只翻前两页。"
     },
     {
       "id": "ccgp",
@@ -52,8 +52,28 @@
       "note": "HTTP 403，WAF 拒绝"
     }
   ],
-  "count": 15585,
+  "count": 15588,
   "items": [
+    {
+      "id": "2bc28482958528bc",
+      "title": "青铜峡市第四中学2026年理化生实验室采购项目招标公告",
+      "buyer": "青铜峡市第四中学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-17",
+      "deadline": "",
+      "source": "宁夏公共资源交易中心",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/640000/0201/20261117/2c97887e21a7900f8ee96d0df3bc6a98.html",
+      "region": "national",
+      "city": "",
+      "province": "宁夏",
+      "type_hint": "招标公告",
+      "keywords": [
+        "理化生实验室"
+      ],
+      "summary": "全国公共资源交易平台 青铜峡市第四中学2026年理化生实验室采购项目招标公告 发布时间：2026-11-17 09:57 信息来源： 原文链接地址"
+    },
     {
       "id": "241b02b7bed02da1",
       "title": "隰县第一中学校公开招标隰县一中理化生实验室设施设备采购项目中标结果公告",
@@ -72,6 +92,26 @@
       "keywords": [
         "理化生实验室"
       ]
+    },
+    {
+      "id": "160551ba9d88fb2e",
+      "title": "银川市宁华学校智慧教室采购项目中标公告",
+      "buyer": "银川市宁华学校",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-17",
+      "deadline": "",
+      "source": "宁夏公共资源交易中心",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/640000/0201/20261117/3b3c5813a407ccaeb69c240cb65574dd.html",
+      "region": "national",
+      "city": "",
+      "province": "宁夏",
+      "type_hint": "结果中标",
+      "keywords": [
+        "智慧教室"
+      ],
+      "summary": "全国公共资源交易平台 银川市宁华学校智慧教室采购项目中标公告 发布时间：2026-11-17 17:06 信息来源： 原文链接地址"
     },
     {
       "id": "9e8b86a2bcdffb95",
@@ -187,6 +227,26 @@
       "keywords": [
         "生物实验室"
       ]
+    },
+    {
+      "id": "86a444a243a1cfca",
+      "title": "固原市第八中学2026年义务教育薄弱环节改善与能力提升智慧教室设备采购项目中标公告",
+      "buyer": "固原市第八中学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-17",
+      "deadline": "",
+      "source": "宁夏公共资源交易中心",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/640000/0201/20261117/24bf3c134a84b36177af2c3d55ec30d3.html",
+      "region": "national",
+      "city": "",
+      "province": "宁夏",
+      "type_hint": "结果中标",
+      "keywords": [
+        "智慧教室"
+      ],
+      "summary": "全国公共资源交易平台 固原市第八中学2026年义务教育薄弱环节改善与能力提升智慧教室设备采购项目中标公告 发布时间：2026-11-17 15:49 信息来源： 原文链接地址"
     },
     {
       "id": "f11a2ab405acec34",
