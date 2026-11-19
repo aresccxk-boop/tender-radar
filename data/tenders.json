@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-19 12:57",
+  "updated_at": "2026-11-19 22:46",
   "timezone": "Asia/Shanghai",
   "runner": "github-actions",
   "sources": [
@@ -15,17 +15,17 @@
       "id": "henan",
       "name": "河南省政府采购网",
       "status": "ok",
-      "listed": 524,
-      "kept": 3,
-      "note": "列表 524 条，标题命中 3 条，补详情 3 条"
+      "listed": 528,
+      "kept": 2,
+      "note": "列表 528 条，标题命中 2 条，补详情 2 条"
     },
     {
       "id": "ggzy",
       "name": "全国公共资源交易平台",
       "status": "ok",
-      "listed": 5509,
-      "kept": 5141,
-      "note": "32 省近 120 天按省翻页。列表 5509 条，本轮新收录 5141 条，补详情 50 条，进度 1408/1408。未重新抓到的旧公告会保留，不会退回只翻前两页。"
+      "listed": 480,
+      "kept": 445,
+      "note": "32 省近 120 天按省翻页。列表 480 条，本轮新收录 445 条，补详情 50 条，进度 1408/1408。未重新抓到的旧公告会保留，不会退回只翻前两页。"
     },
     {
       "id": "ccgp",
@@ -52,7 +52,7 @@
       "note": "HTTP 403，WAF 拒绝"
     }
   ],
-  "count": 15428,
+  "count": 15430,
   "items": [
     {
       "id": "f5215f3871d9476c",
@@ -54610,6 +54610,25 @@
       ]
     },
     {
+      "id": "387b22bef8129a53",
+      "title": "哈密市第一小学创客教室建设项目(二次)合同",
+      "buyer": "哈密市第一小学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-10-21",
+      "deadline": "",
+      "source": "新疆公共资源交易中心",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/650000/0203/20261021/0065084e9fea370b44eba7446aad8f957058.html",
+      "region": "national",
+      "city": "",
+      "province": "新疆",
+      "type_hint": "结果中标",
+      "keywords": [
+        "创客教室"
+      ]
+    },
+    {
       "id": "016ea9fe30fc0d2f",
       "title": "咸阳师范学院数学建模实验室升级改造项目结果公告",
       "buyer": "咸阳师范学院",
@@ -65524,6 +65543,25 @@
       "type_hint": "结果中标",
       "keywords": [
         "实验室"
+      ]
+    },
+    {
+      "id": "23bbbb487e2cbc8a",
+      "title": "哈密市第四小学创客教室建设项目（设备采购）二次合同",
+      "buyer": "哈密市第四小学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-10-16",
+      "deadline": "",
+      "source": "新疆公共资源交易中心",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/650000/0203/20261016/0065614f145a269440a6a675ba18052b6007.html",
+      "region": "national",
+      "city": "",
+      "province": "新疆",
+      "type_hint": "结果中标",
+      "keywords": [
+        "创客教室"
       ]
     },
     {
