@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-21 12:45",
+  "updated_at": "2026-11-21 21:48",
   "timezone": "Asia/Shanghai",
   "runner": "github-actions",
   "sources": [
@@ -14,18 +14,18 @@
     {
       "id": "henan",
       "name": "河南省政府采购网",
-      "status": "ok",
-      "listed": 548,
-      "kept": 2,
-      "note": "列表 548 条，标题命中 2 条，补详情 2 条"
+      "status": "fail",
+      "listed": 0,
+      "kept": 0,
+      "note": "栏目超时：采购意向、招标公告、更正、结果中标"
     },
     {
       "id": "ggzy",
       "name": "全国公共资源交易平台",
       "status": "ok",
-      "listed": 5596,
-      "kept": 5217,
-      "note": "32 省近 120 天按省翻页。列表 5596 条，本轮新收录 5217 条，补详情 50 条，进度 1408/1408。未重新抓到的旧公告会保留，不会退回只翻前两页。"
+      "listed": 509,
+      "kept": 474,
+      "note": "32 省近 120 天按省翻页。列表 509 条，本轮新收录 474 条，补详情 50 条，进度 1408/1408。未重新抓到的旧公告会保留，不会退回只翻前两页。"
     },
     {
       "id": "ccgp",
@@ -52,7 +52,7 @@
       "note": "HTTP 403，WAF 拒绝"
     }
   ],
-  "count": 15193,
+  "count": 15194,
   "items": [
     {
       "id": "cb2833247cddef8a",
@@ -606,6 +606,26 @@
       "keywords": [
         "智慧黑板"
       ]
+    },
+    {
+      "id": "7049eccd50e5bb2c",
+      "title": "关于青海职业技术大学基础物理实验室建设项目中标结果公告",
+      "buyer": "青海职业技术大学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-20",
+      "deadline": "",
+      "source": "青海公共资源交易中心",
+      "source_id": "ggzy",
+      "url": "http://www.qhggzyjy.gov.cn/wzds/WebbuilderMIS/RedirectPage/RedirectPage.jspx?infoguid=1101000038978403",
+      "region": "national",
+      "city": "",
+      "province": "青海",
+      "type_hint": "结果中标",
+      "keywords": [
+        "物理实验室"
+      ],
+      "summary": "全国公共资源交易平台 关于青海职业技术大学基础物理实验室建设项目中标结果公告 发布时间：2026-11-20 18:32 信息来源： 青海省公共资源交易网 原文链接地址 中标结果公告 采购项目编号 青海诚当公招（货物）2026-030 采购项目名称 青海职业技术大学基础物理实验室建设项目 采购方式 公开招标 采购预算控制额度 2640000.00元 成交总金"
     },
     {
       "id": "fa12f57dff2baa8b",
