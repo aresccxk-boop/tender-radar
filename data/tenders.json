@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-26 13:54",
+  "updated_at": "2026-11-26 23:44",
   "timezone": "Asia/Shanghai",
   "runner": "github-actions",
   "sources": [
@@ -23,9 +23,9 @@
       "id": "ggzy",
       "name": "全国公共资源交易平台",
       "status": "ok",
-      "listed": 5593,
-      "kept": 5204,
-      "note": "32 省近 120 天按省翻页。列表 5593 条，本轮新收录 5204 条，补详情 50 条，进度 1408/1408。未重新抓到的旧公告会保留，不会退回只翻前两页。"
+      "listed": 529,
+      "kept": 495,
+      "note": "32 省近 120 天按省翻页。列表 529 条，本轮新收录 495 条，补详情 50 条，进度 1408/1408。未重新抓到的旧公告会保留，不会退回只翻前两页。"
     },
     {
       "id": "ccgp",
@@ -52,8 +52,28 @@
       "note": "HTTP 403，WAF 拒绝"
     }
   ],
-  "count": 14681,
+  "count": 14684,
   "items": [
+    {
+      "id": "216b76e4d2e488a0",
+      "title": "十二师职业技术学校2026年现代职业教育质量提升项目（第二批）--人工智能实训室的终止公告",
+      "buyer": "十二师职业技术学校",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-26",
+      "deadline": "",
+      "source": "兵团公共资源交易中心",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/660000/0201/20261126/be2dc069a794e5badfae2511f4fdd405.html",
+      "region": "national",
+      "city": "",
+      "province": "兵团",
+      "type_hint": "招标公告",
+      "keywords": [
+        "人工智能实训"
+      ],
+      "summary": "全国公共资源交易平台 十二师职业技术学校2026年现代职业教育质量提升项目（第二批）--人工智能实训室的终止公告 发布时间：2026-11-26 11:37 信息来源： 原文链接地址"
+    },
     {
       "id": "b7600b62974fa75f",
       "title": "丰城市政府采购中心关于宜春丰城技师学院人工智能实训室建设项目（第三次）（项目编号：中心-FC2026-015-2）竞争性谈判公告",
@@ -321,6 +341,26 @@
       "keywords": [
         "生物实验室"
       ]
+    },
+    {
+      "id": "b32ab7dd230569ef",
+      "title": "永宁县第二小学智慧教室建设项目中标公告",
+      "buyer": "永宁县第二小学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-25",
+      "deadline": "",
+      "source": "宁夏公共资源交易中心",
+      "source_id": "ggzy",
+      "url": "https://ggzyjy.fzggw.nx.gov.cn/infodetailforztb.html?infoid=68750406-79fe-46f0-827b-09270441e77a",
+      "region": "national",
+      "city": "",
+      "province": "宁夏",
+      "type_hint": "结果中标",
+      "keywords": [
+        "智慧教室"
+      ],
+      "summary": "全国公共资源交易平台 永宁县第二小学智慧教室建设项目中标公告 发布时间：2026-11-25 18:12 信息来源： 宁夏公共资源交易服务平台 原文链接地址 一、项目编号： CXZB-2026ZC023 采购计划编号 ：2026NCZ(YC)005847 二、项目名称： 永宁县第二小学智慧教室建设项目 三、中标（成交）信息 供应商名称 供应商地址 供应商联系"
     },
     {
       "id": "7e18248adaca1f99",
@@ -684,6 +724,26 @@
       "keywords": [
         "智慧教室"
       ]
+    },
+    {
+      "id": "5e31487a4fce7eb9",
+      "title": "哈密市第十五小学创客教室建设项目公开招标公告",
+      "buyer": "哈密市第十五小学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-25",
+      "deadline": "2026-12-17",
+      "source": "新疆公共资源交易中心",
+      "source_id": "ggzy",
+      "url": "http://www.ccgp-xinjiang.gov.cn/luban/detail?parentId=3661&articleId=tOkcxzGsiuDYgiO4cj4hBQ==",
+      "region": "national",
+      "city": "",
+      "province": "新疆",
+      "type_hint": "招标公告",
+      "keywords": [
+        "创客教室"
+      ],
+      "summary": "全国公共资源交易平台 哈密市第十五小学创客教室建设项目公开招标公告 发布时间：2026-11-25 17:38 信息来源： 新疆维吾尔自治区公共资源交易平台 原文链接地址 ？ 项目概况 哈密市第十五小学创客教室建设项目 招标项目的潜在投标人应在 政采云平台线上 获取招标文件，并于 2026年12月17日 10:00 （北京时间）前递交投标文件。 一、项目基本"
     },
     {
       "id": "5ba7069de3ccc28b",
