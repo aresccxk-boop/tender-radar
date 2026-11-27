@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-27 13:51",
+  "updated_at": "2026-11-27 23:37",
   "timezone": "Asia/Shanghai",
   "runner": "github-actions",
   "sources": [
@@ -8,24 +8,24 @@
       "name": "广东省公共资源交易平台",
       "status": "ok",
       "listed": 840,
-      "kept": 20,
-      "note": "列表 840 条，标题命中 20 条，补详情 20 条"
+      "kept": 24,
+      "note": "列表 840 条，标题命中 24 条，补详情 24 条"
     },
     {
       "id": "henan",
       "name": "河南省政府采购网",
-      "status": "fail",
-      "listed": 0,
-      "kept": 0,
-      "note": "栏目超时：采购意向、招标公告、更正、结果中标"
+      "status": "ok",
+      "listed": 544,
+      "kept": 2,
+      "note": "列表 544 条，标题命中 2 条，补详情 2 条"
     },
     {
       "id": "ggzy",
       "name": "全国公共资源交易平台",
       "status": "ok",
-      "listed": 5558,
-      "kept": 5171,
-      "note": "32 省近 120 天按省翻页。列表 5558 条，本轮新收录 5171 条，补详情 50 条，进度 1408/1408。未重新抓到的旧公告会保留，不会退回只翻前两页。"
+      "listed": 530,
+      "kept": 496,
+      "note": "32 省近 120 天按省翻页。列表 530 条，本轮新收录 496 条，补详情 50 条，进度 1408/1408。未重新抓到的旧公告会保留，不会退回只翻前两页。"
     },
     {
       "id": "ccgp",
@@ -52,8 +52,48 @@
       "note": "HTTP 403，WAF 拒绝"
     }
   ],
-  "count": 14489,
+  "count": 14494,
   "items": [
+    {
+      "id": "fb71816f9e6597ed",
+      "title": "深圳创新高级中学物理实验室设备设施（A）招标公告",
+      "buyer": "深圳创新高级中学",
+      "budget": 2871400.0,
+      "winner": "",
+      "publish_date": "2026-11-27",
+      "deadline": "2026-12-08",
+      "source": "广东省公共资源交易平台",
+      "source_id": "gd",
+      "url": "https://ygp.gdzwfw.gov.cn/#/44/new/jygg/v3/D?noticeId=0177b66b-ed42-4f10-9a3e-2181e2afad06&projectCode=SZCG2026001615&bizCode=3822&siteCode=440300&publishDate=20261127165352&source=%E6%B7%B1%E5%9C%B3%E4%BA%A4%E6%98%93%E9%9B%86%E5%9B%A2%E7%BB%9F%E4%B8%80%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E5%B9%B3%E5%8F%B0&titleDetails=%E6%94%BF%E5%BA%9C%E9%87%87%E8%B4%AD&classify=D01",
+      "region": "guangdong",
+      "city": "深圳市",
+      "province": "广东",
+      "type_hint": "招标公告",
+      "keywords": [
+        "物理实验室"
+      ],
+      "summary": "采购项目编号：SZCG2026001615 采购项目名称：深圳创新高级中学物理实验室设备设施 采购预算金额：2871400.000000 深圳创新高级中学物理实验室设备设施（A）招标公告 项目概况 深圳创新高级中学物理实验室设备设施招标项目的潜在投标人应在（本公告附件中）获取招标文件，并于2026年12月08日 08:30（北京时间）前递交投标文件。 一、项"
+    },
+    {
+      "id": "51da466f42946c95",
+      "title": "深圳创新高级中学化学实验室设备设施（A）招标公告",
+      "buyer": "深圳创新高级中学",
+      "budget": 1530000.0,
+      "winner": "",
+      "publish_date": "2026-11-27",
+      "deadline": "2026-12-08",
+      "source": "广东省公共资源交易平台",
+      "source_id": "gd",
+      "url": "https://ygp.gdzwfw.gov.cn/#/44/new/jygg/v3/D?noticeId=65e079a0-51f8-44ef-b282-8702301bfa3c&projectCode=SZCG2026001616&bizCode=3822&siteCode=440300&publishDate=20261127165444&source=%E6%B7%B1%E5%9C%B3%E4%BA%A4%E6%98%93%E9%9B%86%E5%9B%A2%E7%BB%9F%E4%B8%80%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E5%B9%B3%E5%8F%B0&titleDetails=%E6%94%BF%E5%BA%9C%E9%87%87%E8%B4%AD&classify=D01",
+      "region": "guangdong",
+      "city": "深圳市",
+      "province": "广东",
+      "type_hint": "招标公告",
+      "keywords": [
+        "化学实验室"
+      ],
+      "summary": "采购项目编号：SZCG2026001616 采购项目名称：深圳创新高级中学化学实验室设备设施 采购预算金额：1530000.000000 深圳创新高级中学化学实验室设备设施（A）招标公告 项目概况 深圳创新高级中学化学实验室设备设施招标项目的潜在投标人应在（本公告附件中）获取招标文件，并于2026年12月08日 08:30（北京时间）前递交投标文件。 一、项"
+    },
     {
       "id": "cc8e24913795cff7",
       "title": "江西省机电设备招标有限公司关于江西环境工程职业学院2026年智慧教室升级改造项目02包（项目编号：JXTC2026250368-04）的竞争性谈判公告",
@@ -110,6 +150,46 @@
       "keywords": [
         "录播教室"
       ]
+    },
+    {
+      "id": "3e0411c55345ed2b",
+      "title": "巴音郭楞职业技术学院采购智慧黑板项目（三次）中标(成交)结果公告",
+      "buyer": "巴音郭楞职业技术学院",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-27",
+      "deadline": "",
+      "source": "新疆公共资源交易中心",
+      "source_id": "ggzy",
+      "url": "http://www.ccgp-xinjiang.gov.cn/luban/detail?parentId=3661&articleId=76h5MRMCiXs+MVVJC0qaCQ==",
+      "region": "national",
+      "city": "",
+      "province": "新疆",
+      "type_hint": "结果中标",
+      "keywords": [
+        "智慧黑板"
+      ],
+      "summary": "全国公共资源交易平台 巴音郭楞职业技术学院采购智慧黑板项目（三次）中标(成交)结果公告 发布时间：2026-11-27 13:45 信息来源： 新疆维吾尔自治区公共资源交易平台 原文链接地址 ？ 一、项目编号： BZZZZX（JT）2026-010号 二、项目名称： 巴音郭楞职业技术学院采购智慧黑板项目（三次） 三、中标（成交）信息 1.中标结果： 序号 供"
+    },
+    {
+      "id": "38ed1f2ee5e4f791",
+      "title": "唐河县中等职业学校物理、化学、生物实验室仪器设备采购项目-成交公告",
+      "buyer": "唐河县中等职业学校",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-27",
+      "deadline": "",
+      "source": "河南省政府采购网",
+      "source_id": "henan",
+      "url": "https://zfcg.henan.gov.cn/henan/content?infoId=2051977&channelCode=H740602",
+      "region": "henan",
+      "city": "南阳",
+      "province": "河南",
+      "type_hint": "结果中标",
+      "keywords": [
+        "生物实验室"
+      ],
+      "summary": "河南省政府采购网 河南省政府采购网 您好，欢迎访问河南省政府采购网！ 服务热线：0371-65808207、0371-65808480 进入适老模式 无障碍阅读 首页 工作动态 通知公告 采购信息 购买服务 开标信息 监督管理 政策法规 政策解读 操作指南 文件下载 公众咨询 唐河县中等职业学校物理、化学、生物实验室仪器设备采购项目-成交公告 发布机构： 唐"
     },
     {
       "id": "9d85bb0c2ca9884f",
@@ -607,6 +687,26 @@
       ]
     },
     {
+      "id": "21e5147bbb5fb32e",
+      "title": "中卫市第四小学2026年学校设施设备缺额（智慧黑板）采购项目招标公告",
+      "buyer": "中卫市第四小学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-26",
+      "deadline": "2026-12-17",
+      "source": "宁夏公共资源交易中心",
+      "source_id": "ggzy",
+      "url": "https://ggzyjy.fzggw.nx.gov.cn/infodetailforztb.html?infoid=8ab238b4a216273601a216e1e13c16e8",
+      "region": "national",
+      "city": "",
+      "province": "宁夏",
+      "type_hint": "招标公告",
+      "keywords": [
+        "智慧黑板"
+      ],
+      "summary": "全国公共资源交易平台 中卫市第四小学2026年学校设施设备缺额（智慧黑板）采购项目招标公告 发布时间：2026-11-26 16:22 信息来源： 宁夏公共资源交易服务平台 原文链接地址 一、项目基本情况 采购计划编号： 2026NCZ(ZW)0002371 项目编号： D6405000141100624 项目名称： 中卫市第四小学2026年学校设施设备缺额"
+    },
+    {
       "id": "3a2b8c45efc4b976",
       "title": "上海应用技术大学大学物理实验室升级改造中标（成交）结果公告",
       "buyer": "上海应用技术大学",
@@ -662,6 +762,26 @@
       "keywords": [
         "传感器"
       ]
+    },
+    {
+      "id": "0f46d2e4db9783f2",
+      "title": "2026年义务教育薄弱环节改善与能力提升项目中央资金（第一批）--兴钢镇中学理化生实验室仪器设备采购项目中标(成交)结果公告",
+      "buyer": "兴钢镇中学",
+      "budget": 1000000.0,
+      "winner": "",
+      "publish_date": "2026-11-26",
+      "deadline": "",
+      "source": "新疆公共资源交易中心",
+      "source_id": "ggzy",
+      "url": "http://ggzy.xjyl.gov.cn/EpointWebBuilder/pageRedirectAction.action?cmd=pageRedirect&locationurl=http://ggzy.xjyl.gov.cn/&infoid=3000cb67-5070-4ba3-b3a2-0f23ed934c4f",
+      "region": "national",
+      "city": "",
+      "province": "新疆",
+      "type_hint": "结果中标",
+      "keywords": [
+        "理化生实验室"
+      ],
+      "summary": "全国公共资源交易平台 2026年义务教育薄弱环节改善与能力提升项目中央资金（第一批）--兴钢镇中学理化生实验室仪器设备采购项目中标(成交)结果公告 发布时间：2026-11-26 00:00 信息来源： 伊犁州公共资源电子交易平台 原文链接地址 2026年义务教育薄弱环节改善与能力提升项目中央资金（第一批）--兴钢镇中学理化生实验室仪器设备采购项目中标(成交"
     },
     {
       "id": "fff1a24b7afb69a7",
@@ -4661,26 +4781,6 @@
       "keywords": [
         "理化生实验室"
       ]
-    },
-    {
-      "id": "31e272819e4c396c",
-      "title": "2026年义务教育薄弱环节改善与能力提升项目中央资金（第一批）--兴钢镇中学理化生实验室仪器设备采购项目中标(成交)结果公告",
-      "buyer": "兴钢镇中学",
-      "budget": 1000000.0,
-      "winner": "",
-      "publish_date": "2026-11-20",
-      "deadline": "",
-      "source": "新疆公共资源交易中心",
-      "source_id": "ggzy",
-      "url": "http://www.ccgp-xinjiang.gov.cn/luban/detail?parentId=3661&articleId=IDTZK+3xGgrnmMMqz0cARg==",
-      "region": "national",
-      "city": "",
-      "province": "新疆",
-      "type_hint": "结果中标",
-      "keywords": [
-        "理化生实验室"
-      ],
-      "summary": "全国公共资源交易平台 2026年义务教育薄弱环节改善与能力提升项目中央资金（第一批）--兴钢镇中学理化生实验室仪器设备采购项目中标(成交)结果公告 发布时间：2026-11-20 10:36 信息来源： 新疆维吾尔自治区公共资源交易平台 原文链接地址 ？ 一、项目编号： XJQSQZB2026-033 二、项目名称： 2026年义务教育薄弱环节改善与能力提升"
     },
     {
       "id": "5dce15f673a58ae5",
