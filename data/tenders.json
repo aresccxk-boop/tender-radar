@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-28 13:27",
+  "updated_at": "2026-11-28 22:36",
   "timezone": "Asia/Shanghai",
   "runner": "github-actions",
   "sources": [
@@ -15,17 +15,17 @@
       "id": "henan",
       "name": "河南省政府采购网",
       "status": "ok",
-      "listed": 532,
-      "kept": 2,
-      "note": "列表 532 条，标题命中 2 条，补详情 2 条"
+      "listed": 541,
+      "kept": 1,
+      "note": "列表 541 条，标题命中 1 条，补详情 1 条"
     },
     {
       "id": "ggzy",
       "name": "全国公共资源交易平台",
       "status": "ok",
-      "listed": 5561,
-      "kept": 5173,
-      "note": "32 省近 120 天按省翻页。列表 5561 条，本轮新收录 5173 条，补详情 50 条，进度 1408/1408。未重新抓到的旧公告会保留，不会退回只翻前两页。"
+      "listed": 530,
+      "kept": 496,
+      "note": "32 省近 120 天按省翻页。列表 530 条，本轮新收录 496 条，补详情 50 条，进度 1408/1408。未重新抓到的旧公告会保留，不会退回只翻前两页。"
     },
     {
       "id": "ccgp",
@@ -52,7 +52,7 @@
       "note": "HTTP 403，WAF 拒绝"
     }
   ],
-  "count": 14335,
+  "count": 14340,
   "items": [
     {
       "id": "8533fe8e7458070e",
@@ -72,6 +72,26 @@
       "keywords": [
         "创新实验室"
       ]
+    },
+    {
+      "id": "d0aeea56c4e6f974",
+      "title": "中标(成交)结果公告可克达拉市第二中学理化生实验室设施设备及仪器采购项目中标(成交)结果公告",
+      "buyer": "可克达拉市第二中学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-28",
+      "deadline": "",
+      "source": "兵团公共资源交易中心",
+      "source_id": "ggzy",
+      "url": "https://www.ggzy.gov.cn/information/deal/html/a/660000/0201/20261128/8a549e42c7dfc07071c444a5a01daeba.html",
+      "region": "national",
+      "city": "",
+      "province": "兵团",
+      "type_hint": "结果中标",
+      "keywords": [
+        "理化生实验室"
+      ],
+      "summary": "全国公共资源交易平台 中标(成交)结果公告可克达拉市第二中学理化生实验室设施设备及仪器采购项目中标(成交)结果公告 发布时间：2026-11-28 12:38 信息来源： 原文链接地址"
     },
     {
       "id": "47d253e7c57df740",
@@ -243,6 +263,26 @@
       "keywords": [
         "智慧黑板"
       ]
+    },
+    {
+      "id": "1c4fe92c8938a106",
+      "title": "第一师第二中学（高中部）2026年办学条件提升与设施更新项目-智慧黑板、速印机等设备采购中标结果公示",
+      "buyer": "第一师第二中学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-27",
+      "deadline": "",
+      "source": "兵团公共资源交易中心",
+      "source_id": "ggzy",
+      "url": "https://36.189.17.254/public_bid_trade_zfcg.html?categorynum=004002001005&infoid=1101000039125147",
+      "region": "national",
+      "city": "",
+      "province": "兵团",
+      "type_hint": "结果中标",
+      "keywords": [
+        "智慧黑板"
+      ],
+      "summary": "全国公共资源交易平台 第一师第二中学（高中部）2026年办学条件提升与设施更新项目-智慧黑板、速印机等设备采购中标结果公示 发布时间：2026-11-27 23:30 信息来源： 新疆生产建设兵团公共资源交易中心 原文链接地址 ‍ 一、项目编号： B1S[2026]3314号-001 二、项目名称： 第一师第二中学（高中部）2026年办学条件提升与设施更新项"
     },
     {
       "id": "f093358b3cec5b7c",
@@ -475,6 +515,26 @@
       ]
     },
     {
+      "id": "683071f3e2e090b5",
+      "title": "昭苏县教育局初中理化生实验室及配套设备项目（二次）中标(成交)结果公告",
+      "buyer": "昭苏县教育局",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-27",
+      "deadline": "",
+      "source": "新疆公共资源交易中心",
+      "source_id": "ggzy",
+      "url": "http://www.ccgp-xinjiang.gov.cn/luban/detail?parentId=3661&articleId=T0a2oMSxZ3Py2gMw8mobjg==",
+      "region": "national",
+      "city": "",
+      "province": "新疆",
+      "type_hint": "结果中标",
+      "keywords": [
+        "理化生实验室"
+      ],
+      "summary": "全国公共资源交易平台 昭苏县教育局初中理化生实验室及配套设备项目（二次）中标(成交)结果公告 发布时间：2026-11-27 17:15 信息来源： 新疆维吾尔自治区公共资源交易平台 原文链接地址 ？ 一、项目编号： ZZXH-2026-015-1 二、项目名称： 昭苏县教育局初中理化生实验室及配套设备项目（二次） 三、中标（成交）信息 1.中标结果： 序号"
+    },
+    {
       "id": "f544d4b7a6e8ac69",
       "title": "新干县初中理化生实验室设备、仪器药品采购及安装项目",
       "buyer": "",
@@ -627,6 +687,26 @@
       "keywords": [
         "智慧教室"
       ]
+    },
+    {
+      "id": "365c13d702d39492",
+      "title": "宁夏葡萄酒与防沙治沙职业技术学院智慧教室设备采购项目招标公告",
+      "buyer": "宁夏葡萄酒与防沙治沙职业技术学院",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-27",
+      "deadline": "2026-12-22",
+      "source": "宁夏公共资源交易中心",
+      "source_id": "ggzy",
+      "url": "https://ggzyjy.fzggw.nx.gov.cn/infodetailforztb.html?infoid=8ab238b4a216273601a21c2c65545eb4",
+      "region": "national",
+      "city": "",
+      "province": "宁夏",
+      "type_hint": "招标公告",
+      "keywords": [
+        "智慧教室"
+      ],
+      "summary": "全国公共资源交易平台 宁夏葡萄酒与防沙治沙职业技术学院智慧教室设备采购项目招标公告 发布时间：2026-11-27 17:47 信息来源： 宁夏公共资源交易服务平台 原文链接地址 一、项目基本情况 采购计划编号： 2026NCZ002514 项目编号： NJC/A260158 项目名称： 宁夏葡萄酒与防沙治沙职业技术学院智慧教室设备采购项目 预算金额（元）："
     },
     {
       "id": "322685cb38b13ed3",
@@ -856,6 +936,26 @@
       "keywords": [
         "理化生实验室"
       ]
+    },
+    {
+      "id": "c475c400c661a7ba",
+      "title": "伊宁市第十五小学六间智慧教室设备及软件公开招标公告",
+      "buyer": "伊宁市第十五小学",
+      "budget": null,
+      "winner": "",
+      "publish_date": "2026-11-27",
+      "deadline": "2026-12-21",
+      "source": "新疆公共资源交易中心",
+      "source_id": "ggzy",
+      "url": "http://www.ccgp-xinjiang.gov.cn/luban/detail?parentId=3661&articleId=KHs4QE0RINQQhML/2QQM0g==",
+      "region": "national",
+      "city": "",
+      "province": "新疆",
+      "type_hint": "招标公告",
+      "keywords": [
+        "智慧教室"
+      ],
+      "summary": "全国公共资源交易平台 伊宁市第十五小学六间智慧教室设备及软件公开招标公告 发布时间：2026-11-27 20:45 信息来源： 新疆维吾尔自治区公共资源交易平台 原文链接地址 ？ 项目概况 伊宁市第十五小学六间智慧教室设备及软件 招标项目的潜在投标人应在 政采云平台线上 获取招标文件，并于 2026年12月21日 10:30 （北京时间）前递交投标文件。 "
     },
     {
       "id": "97cdc4b4cbf9834b",
